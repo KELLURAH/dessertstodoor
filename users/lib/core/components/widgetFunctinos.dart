@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
 
@@ -18,15 +19,18 @@ AppBar appbar(bool isHome, {String? title, Color? backgroundColor}) {
     title: Text(
       title!,
       style: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w600,
-        fontSize: 22,
+        color: isHome ? Colors.black : Colors.white,
+        fontWeight: FontWeight.w500,
+        fontSize: 18,
       ),
     ),
     actions: isHome
         ? [
             IconButton(
-              icon: const Icon(Icons.shopping_cart),
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.black,
+              ),
               tooltip: 'Open shopping cart',
               onPressed: () {
                 // handle the press
@@ -69,7 +73,7 @@ TextFormField buildTextFormField(
               onPressed: () {},
             )
           : null,
-      fillColor: Colors.grey[300],
+      fillColor: Colors.grey[100],
       filled: true,
       focusColor: PRIMARY_LIGHT,
       focusedBorder: OutlineInputBorder(
@@ -107,6 +111,57 @@ Text normalText(String? text) {
       fontSize: 18,
       fontWeight: FontWeight.w500,
       color: Colors.black,
+    ),
+  );
+}
+
+SizedBox OnboardingDetails(
+  String image,{
+  Size? size,
+  String? title,
+  
+  String? description,
+}) {
+  return SizedBox(
+    height: size!.height,
+    // padding: const EdgeInsets.symmetric(horizontal: 40),
+    child: Column(
+      children: [
+        SizedBox(
+          height: size.height * 0.65,
+          child: SvgPicture.asset(
+            image,
+
+            fit: BoxFit.contain,
+          ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title!,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
+            ),
+            addVertical(size.height * 0.025),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                description!,
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     ),
   );
 }

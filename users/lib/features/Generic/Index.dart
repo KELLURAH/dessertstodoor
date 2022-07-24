@@ -24,8 +24,8 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  int _selectedIndex = 1;
-  int activeIndex = 1;
+  int _selectedIndex = 0;
+  int activeIndex = 0;
 
   Future<bool> showExitPopUp() async {
     UtilityService().confirmationBox(

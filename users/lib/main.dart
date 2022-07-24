@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:users/features/Authentication/presentation/pages/Login.dart';
+import 'package:users/features/Authentication/presentation/pages/Registration.dart';
 import 'package:users/features/Generic/Index.dart';
 import 'package:users/features/Generic/Onboarding.dart';
 import 'package:users/features/Generic/Splash.dart';
@@ -19,15 +20,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // primarySwatch: Colors.blue,
       ),
-      home: const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
+      // home: const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
       // home: const SplashScreen(),  
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => const SplashScreen(),
-      //   '/r': (context) => const OnBoarding(),
-      //   '/l': (context) => const Login(),
-      //   '/h': (context) => const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
-      // },
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/o': (context) => const OnBoarding(),
+        '/r': (context) => const Registration(),
+        '/l': (context) => const Login(),
+        '/h': (context) => const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
+      },
     );
   }
 }

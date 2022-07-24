@@ -48,8 +48,8 @@ class DashCards extends StatelessWidget {
               //   begin: Alignment.centerRight,
               //   end: Alignment.centerLeft,
               //   colors: [
-              //     gradientColor1 ?? PHARM_GREEN_GRADIENT1,
-              //     gradientColor2 ?? PHARM_GREEN_GRADIENT2,
+              //     gradientColor1 ?? SECOND_COLOR_GRADIENT1,
+              //     gradientColor2 ?? SECOND_COLOR_GRADIENT2,
               //   ],
               // ),
               borderRadius: BorderRadius.only(
@@ -57,7 +57,11 @@ class DashCards extends StatelessWidget {
                 topRight: Radius.circular(10),
               ),
             ),
-            child: Image.asset(image, fit: BoxFit.cover, scale: .5,),
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover,
+              scale: .5,
+            ),
           ),
           addVertical(10),
           Align(

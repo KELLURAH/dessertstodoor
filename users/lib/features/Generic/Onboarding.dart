@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:users/core/utils/Colors.dart';
 
 import '../../core/components/widgetFunctinos.dart';
 
@@ -9,16 +11,17 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return MaterialApp(
       home: OnBoardingSlider(
         onFinish: () {
-          Navigator.pushReplacementNamed(context, '/l');
+          Navigator.pushReplacementNamed(context, '/r');
         },
-        finishButtonColor: Colors.orangeAccent,
-        finishButtonTextStyle: GoogleFonts.raleway(
+        finishButtonColor: SECOND_COLOR,
+        finishButtonTextStyle: GoogleFonts.poppins(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
+          fontWeight: FontWeight.w700,
+          color: Colors.black54,
         ),
         headerBackgroundColor: Colors.white,
         finishButtonText: 'Register',
@@ -30,57 +33,42 @@ class OnBoarding extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        controllerColor: Colors.orangeAccent,
+        controllerColor: SECOND_COLOR,
         // trailing: Text('Login'),
         background: [
-          Center(
-            child: Image.asset(
-              'assets/images/logo.png',
-              height: 275,
-            ),
-          ),
-          Center(
-            child: Image.asset(
-              'assets/images/logo.png',
-              height: 275,
-            ),
-          ),
-          Center(
-            child: Image.asset(
-              'assets/images/logo.png',
-              height: 275,
-            ),
-          ),
+          Container(),
+          Container(),
+          Container(),
+          Container(),
         ],
-        totalPage: 3,
+        totalPage: 4,
         speed: 2,
         pageBodies: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: [
-                addVertical(480),
-                Text('Description Text 1'),
-              ],
-            ),
+          OnboardingDetails(
+            'assets/svgs/welcome.svg',
+            size: size,
+            title: '👋🏾 Welcome to Desserts2Door',
+            description:
+                'Your one in all shop for all your pastry needs...\nOrder your favourite pastry!',
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: [
-                addVertical(480),
-                Text('Description Text 2'),
-              ],
-            ),
+          OnboardingDetails(
+            'assets/svgs/order.svg',
+            size: size,
+            title: 'Order your favourite pastry!',
+            description: 'Order pastries from your favourite vendors!',
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: [
-                addVertical(480),
-                Text('Description Text 3'),
-              ],
-            ),
+          OnboardingDetails(
+            'assets/svgs/delivered.svg',
+            size: size,
+            title: 'Get your ordered pastry in no time!',
+            description:
+                'Once your order has been processed, a rider is dispatched to deliver your pastry at your designated location. 📍',
+          ),
+          OnboardingDetails(
+            'assets/svgs/register.svg',
+            size: size,
+            title: 'Register today! 🥳🎉',
+            description: '...and get access to all these and much more!\n🥳🎉',
           ),
         ],
       ),

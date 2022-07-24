@@ -48,8 +48,8 @@ class ProfileCard extends StatelessWidget {
               //   begin: Alignment.centerRight,
               //   end: Alignment.centerLeft,
               //   colors: [
-              //     gradientColor1 ?? PHARM_GREEN_GRADIENT1,
-              //     gradientColor2 ?? PHARM_GREEN_GRADIENT2,
+              //     gradientColor1 ?? SECOND_COLOR_GRADIENT1,
+              //     gradientColor2 ?? SECOND_COLOR_GRADIENT2,
               //   ],
               // ),
               borderRadius: BorderRadius.only(

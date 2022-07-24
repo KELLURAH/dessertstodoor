@@ -4,7 +4,9 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:users/core/utils/Colors.dart';
 
 import '../../../../core/components/loading.dart';
 import '../../../../core/components/widgetFunctinos.dart';
@@ -55,10 +57,11 @@ class _LoginState extends State<Login> {
   Container Details(double screenWidth) {
     final size = MediaQuery.of(context).size;
     return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: ExactAssetImage('assets/images/muffin.png', scale: 2.0),
-        ),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(1),
+        // image: DecorationImage(
+        //   image: SvgPicture.asset('assets/svgs/sign_in.png', scale: 2.0),
+        // ),
       ),
       padding: const EdgeInsets.symmetric(
         horizontal: 5,
@@ -67,6 +70,7 @@ class _LoginState extends State<Login> {
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
+          SvgPicture.asset('assets/svgs/sign_in.svg'),
           ClipRRect(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +112,7 @@ class _LoginState extends State<Login> {
                   addVertical(10),
                   Text(
                     'Login to Dessert2Door!',
-                    style: GoogleFonts.raleway(
+                    style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
                       color: Colors.black54,
@@ -124,11 +128,11 @@ class _LoginState extends State<Login> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 45.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  buildTextFormField(
-                    'Eg. Kofi Citizen',
-                    'Username',
+                  buildFormField(
+                    'Eg. 020-1234-567',
+                    'Phone Number',
                     emailController,
                     true,
                     false,
@@ -137,7 +141,7 @@ class _LoginState extends State<Login> {
                     },
                   ),
                   addVertical(size.height * 0.025),
-                  buildTextFormField(
+                  buildFormField(
                     '***************',
                     'Password',
                     passwordController,
@@ -158,10 +162,11 @@ class _LoginState extends State<Login> {
                     },
                     child: Text(
                       'Forgot Password?',
+                      textAlign: TextAlign.right,
                       style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        color: PRIMARY_COLOR,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
                         letterSpacing: .25,
                       ),
                     ),
@@ -171,33 +176,30 @@ class _LoginState extends State<Login> {
                     padding: EdgeInsets.only(top: 20.0),
                   ),
                   addVertical(size.height * 0.025),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: const Color(0xff5fd0a5),
-                    ),
-                    onPressed: onButtonPressed,
-                    child: SizedBox(
-                      height: size.height * 0.055,
-                      width: size.width * 0.55,
-                      child: Container(
-                        width: size.width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          // color: ,
-                          // gradient: const LinearGradient(
-                          //   begin: Alignment.centerLeft,
-                          //   end: Alignment.centerRight,
-                          //   colors: [Color(0xff5fd0a5), Color(0xff66da90)],
-                          // ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Login',
-                            style: GoogleFonts.raleway(
-                              fontSize: 20,
-                              letterSpacing: 2.2,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
+                  SizedBox(
+                    width: size.width,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: GREEN_COLOR[400],
+                      ),
+                      onPressed: onButtonPressed,
+                      child: SizedBox(
+                        height: size.height * 0.055,
+                        width: size.width * 0.55,
+                        child: Container(
+                          width: size.width,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Login',
+                              style: GoogleFonts.poppins(
+                                fontSize: 20,
+                                letterSpacing: 2.2,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
@@ -205,40 +207,32 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   addVertical(size.height * 0.010),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Don\'t have an account?',
+                  Row(
+                    children: [
+                      Text(
+                        'Don\'t have an account?',
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          letterSpacing: .25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, '/r');
+                        },
+                        child: Text(
+                          'REGISTER',
                           style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            letterSpacing: .25,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            letterSpacing: .5,
+                            color: SECOND_COLOR,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const Register(),
-                            //   ),
-                            // );
-                          },
-                          child: Text(
-                            'REGISTER',
-                            style: GoogleFonts.poppins(
-                              fontSize: 18,
-                              letterSpacing: .5,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   addVertical(size.height * 0.010),
                   Text(
@@ -297,9 +291,9 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   addVertical(size.height * 0.020),
-                  buildTextFormField(
-                    'Eg. Kofi Citizen',
-                    'Username',
+                  buildFormField(
+                    'Eg. 020-1234-567',
+                    'Phone Number',
                     resetPhone,
                     true,
                     false,
@@ -317,7 +311,7 @@ class _LoginState extends State<Login> {
                     child: ElevatedButton(
                       onPressed: onReset,
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0xff5fd0a5),
+                        primary: GREEN_COLOR[400],
                       ),
                       child: Text(
                         'Reset',
@@ -425,7 +419,7 @@ class _LoginState extends State<Login> {
     }
   }
 
-  TextFormField buildTextFormField(
+  TextFormField buildFormField(
     String hint,
     String label,
     TextEditingController controller,
@@ -439,7 +433,7 @@ class _LoginState extends State<Login> {
         hintText: hint,
         hintStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
-            color: Colors.black54,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
             letterSpacing: .5,
           ),
@@ -447,15 +441,18 @@ class _LoginState extends State<Login> {
         labelText: label,
         labelStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
-            color: Colors.black54,
-            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
           ),
         ),
-        border: InputBorder.none,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: Colors.black, width: 1.5),
+        ),
         prefixIcon: isPhone
-            ? const Icon(Icons.email_outlined)
+            ? const Icon(Icons.phone_outlined)
             : const Icon(Icons.password_outlined),
-        fillColor: Colors.grey[200],
+        fillColor: Colors.white70,
         filled: true,
         focusColor: Colors.orangeAccent,
         focusedBorder: OutlineInputBorder(
@@ -469,6 +466,10 @@ class _LoginState extends State<Login> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(color: Colors.red[400]!, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: SECOND_COLOR, width: 1.5),
         ),
       ),
       keyboardType: isPhone ? TextInputType.phone : TextInputType.text,
