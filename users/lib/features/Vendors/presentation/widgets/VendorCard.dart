@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:users/core/utils/Colors.dart';
 
 class VendorCard extends StatelessWidget {
   final String title, image;
@@ -14,7 +15,7 @@ class VendorCard extends StatelessWidget {
       height: 200,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: SECOND_COLOR.withOpacity(0.045),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -38,12 +39,21 @@ class VendorCard extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Align(
               alignment: Alignment.bottomLeft,
-              child: Text(
-                title,
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                  fontSize: 18,
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.45),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(25),
+                  ),
+                ),
+                child: Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),

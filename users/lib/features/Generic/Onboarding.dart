@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
 
-import '../../core/components/widgetFunctinos.dart';
+import '../../core/components/widgetFunctions.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({Key? key}) : super(key: key);

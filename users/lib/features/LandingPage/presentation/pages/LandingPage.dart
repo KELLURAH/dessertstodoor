@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:users/core/components/cards.dart';
 import 'package:users/core/utils/Colors.dart';
 
-import '../../../../core/components/widgetFunctinos.dart';
+import '../../../../core/components/widgetFunctions.dart';
 import '../../../Generic/Sidebar.dart';
 
 class LandingPage extends StatefulWidget {
@@ -30,7 +30,7 @@ class _LandingPageState extends State<LandingPage> {
 
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: Sidebar(name: widget.name, email: widget.email),
+      drawer: Sidebar(name: widget.name, email: widget.email, context: context),
       appBar: appbar(
         false,
         title: 'Dashboard',
@@ -167,7 +167,7 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 addVertical(15),
-                normalText('text'),
+                normalText('Categories'),
                 const Divider(thickness: .45),
                 addVertical(15),
                 SizedBox(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../core/components/widgetFunctinos.dart';
+import '../../../../core/components/widgetFunctions.dart';
 import '../../../../core/utils/Colors.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(false, title: 'Profile Settings'),
+      appBar: appbar(false, title: 'Profile Settings', backgroundColor: SECOND_COLOR),
       persistentFooterButtons: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35.0),
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () async {},
                 style: ElevatedButton.styleFrom(
                   elevation: 2,
-                  primary: SECOND_COLOR, //!elevatedButton background
+                  primary: GREEN_COLOR[400], //!elevatedButton background
                   // shape: RoundedRectangleBorder(
                   //   borderRadius: BorderRadius.circular(10),
                   // ),
@@ -180,7 +180,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: GoogleFonts.lato(
                         fontSize: 16,
                         letterSpacing: .25,
-                        color: SECOND_COLOR,
+                        color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

@@ -2,7 +2,7 @@ import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../components/widgetFunctinos.dart';
+import '../components/widgetFunctions.dart';
 import 'Colors.dart';
 
 class UtilityService {

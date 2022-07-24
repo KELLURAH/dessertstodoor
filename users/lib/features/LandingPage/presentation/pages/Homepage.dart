@@ -4,7 +4,7 @@ import 'package:users/core/utils/Colors.dart';
 import 'package:users/features/Vendors/presentation/widgets/VendorCard.dart';
 
 import '../../../../core/components/dashCards.dart';
-import '../../../../core/components/widgetFunctinos.dart';
+import '../../../../core/components/widgetFunctions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

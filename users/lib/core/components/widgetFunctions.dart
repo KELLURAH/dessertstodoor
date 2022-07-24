@@ -111,6 +111,7 @@ Text normalText(String? text) {
       fontSize: 18,
       fontWeight: FontWeight.w500,
       color: Colors.black,
+      letterSpacing: .25,
     ),
   );
 }

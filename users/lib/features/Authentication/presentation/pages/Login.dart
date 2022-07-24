@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
 
 import '../../../../core/components/loading.dart';
-import '../../../../core/components/widgetFunctinos.dart';
+import '../../../../core/components/widgetFunctions.dart';
 import '../../../../core/utils/UtilityService.dart';
 
 class Login extends StatefulWidget {
