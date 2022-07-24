@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
+import 'package:users/features/Vendors/presentation/widgets/VendorCard.dart';
 
 import '../../../../core/components/dashCards.dart';
 import '../../../../core/components/widgetFunctinos.dart';
@@ -40,7 +41,29 @@ class HomePageState extends State<HomePage> {
         'color': Colors.green
       },
     ];
-
+    List<Map> _vendors = [
+      {
+        'name': 'Tom\'s Bakery',
+        'specialty': 'Bread, Cakes',
+        'image': 'assets/images/cupcake.png'
+      },
+      {
+        'name': 'B. Foster\'s Bakery',
+        'specialty': 'Bread',
+        'image': 'assets/images/cookie.png'
+      },
+      {
+        'name': 'Tom\'s Bakery',
+        'specialty': 'Bread',
+        'image': 'assets/images/cookie.png'
+      },
+      {
+        'name': 'Tom\'s Bakery',
+        'specialty': 'Bread',
+        'image': 'assets/images/cake.png'
+      },
+    ];
+    final scrollController = ScrollController();
     return Scaffold(
       // drawer: Sidebar(),
       appBar: appbar(
@@ -69,13 +92,8 @@ class HomePageState extends State<HomePage> {
                 // ),
                 // const Divider(),
                 addVertical(10),
-                buildTextFormField(
-                  'Search for Pastries',
-                  'Search',
-                  searchController,
-                  true,
-                  SECOND_COLOR.withOpacity(0.35)
-                ),
+                buildTextFormField('Search for Pastries', 'Search',
+                    searchController, true, SECOND_COLOR.withOpacity(0.35)),
                 addVertical(20),
                 Text(
                   'Our Products ',
@@ -94,7 +112,7 @@ class HomePageState extends State<HomePage> {
                 // ),
                 addVertical(10),
                 SizedBox(
-                  height: size.height * 0.125,
+                  height: size.height * 0.2,
                   child: ListView.separated(
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -124,6 +142,30 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
                 const Divider(thickness: .45, color: Colors.black54),
+                Container(
+                  height: size.height * 0.55,
+                  child: Scrollbar(
+                    thickness: 6,
+                    radius: const Radius.circular(15),
+                    thumbVisibility: false,
+                    // controller: scrollController,
+                    child: ListView.separated(
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      itemCount: _vendors.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return VendorCard(
+                          title: _vendors[index]['name'],
+                          image: _vendors[index]['image'],
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return addVertical(15);
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -24,8 +24,8 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  int _selectedIndex = 0;
-  int activeIndex = 0;
+  int _selectedIndex = 1;
+  int activeIndex = 1;
 
   Future<bool> showExitPopUp() async {
     UtilityService().confirmationBox(
@@ -74,10 +74,10 @@ class _IndexState extends State<Index> {
     if (index == 0) {
       return LandingPage(email: widget.email, name: widget.name);
     } else if (index == 1) {
-      return const OffersPage();
+      return const HomePage();
     } else if (index == 2) {
       //   return const PharmacistsPage();
-      return const HomePage();
+      return const OffersPage();
       // } else if (index == 3) {
       //   return const SettingsScreen();
       // } else if (index == 4) {
@@ -100,18 +100,18 @@ class _IndexState extends State<Index> {
           selectedColor: PRIMARY_COLOR,
         ),
 
-        /// Likes
-        SalomonBottomBarItem(
-          icon: const Icon(Icons.discount),
-          title: Text('Vendors & Offers'.toUpperCase()),
-          selectedColor: OFFERS_COLOR,
-        ),
-
         /// Home
         SalomonBottomBarItem(
           icon: const Icon(Icons.home),
           title: Text('Home'.toUpperCase()),
           selectedColor: SECOND_COLOR,
+        ),
+
+        /// Likes
+        SalomonBottomBarItem(
+          icon: const Icon(Icons.discount),
+          title: Text('Vendors'.toUpperCase()),
+          selectedColor: OFFERS_COLOR,
         ),
 
         /// Search

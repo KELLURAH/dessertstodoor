@@ -20,8 +20,8 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.3,
-      width: size.width * 0.3,
+      height: size.height * 0.4,
+      width: size.width * 0.4,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: backgroundColor.withOpacity(0.1),
@@ -35,9 +35,9 @@ class ProfileCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Stack(
-        fit: StackFit.expand,
-        // crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        // fit: StackFit.expand,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             height: size.height * 0.125,
@@ -57,7 +57,7 @@ class ProfileCard extends StatelessWidget {
                 topRight: Radius.circular(10),
               ),
             ),
-            child: Image.asset(image, fit: BoxFit.cover, scale: .5,),
+            child: Image.asset(image, fit: BoxFit.cover, scale: .5),
           ),
           addVertical(10),
           Align(
