@@ -31,10 +31,17 @@ class MyApp extends StatelessWidget {
         '/o': (context) => const OnBoarding(),
         '/r': (context) => const Registration(),
         '/l': (context) => const Login(),
-        '/h': (context) => const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
-        '/vendors': (context) => const Vendors(),
-        '/home':(context) => const HomePage(),
-        '/offers':(context) => const OffersPage(),
+        '/h': (context) => const Index(
+              email: 'georonathan47@mail.com',
+              name: 'Test Name',
+            ),
+        // '/vendors': (context) => const Vendors(
+        //       vendorImage: 'assets/images/cupcake.png',
+        //       vendorName: 'Tom\'s Bakery',
+        //       fromHomepage: false,
+        //     ),
+        '/home': (context) => const HomePage(),
+        '/offers': (context) => const OffersPage(),
       },
     );
   }

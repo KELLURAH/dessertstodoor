@@ -5,6 +5,7 @@ import 'package:users/features/Vendors/presentation/widgets/VendorCard.dart';
 
 import '../../../../core/components/dashCards.dart';
 import '../../../../core/components/widgetFunctions.dart';
+import '../../../Vendors/presentation/pages/SeeMoreVendors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -174,6 +175,15 @@ class HomePageState extends State<HomePage> {
                         return GestureDetector(
                           onTap: () {
                             // TODO Details about vendor, adding to cart
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Vendors(
+                                    vendorName: _vendors[index]['name'],
+                                    vendorImage: _vendors[index]['image'],
+                                    fromHomepage: false,
+                                  ),
+                                ));
                           },
                           child: VendorCard(
                             isOffersPage: false,
