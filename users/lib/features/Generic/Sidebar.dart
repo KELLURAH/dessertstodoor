@@ -54,7 +54,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
                   ),
@@ -84,7 +84,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
                   ),
@@ -107,13 +107,41 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 // color: LABEL_COLOR,
                 elevation: .5,
                 child: ListTile(
+                  leading: Image.asset('assets/images/discount.png', height: 30),
+                  title: Text(
+                    'Promo Codes',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: .45,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context!);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const SettingsPage(),
+                    //   ),
+                    // );
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Card(
+                // color: LABEL_COLOR,
+                elevation: .5,
+                child: ListTile(
                   leading: const Icon(Icons.settings_outlined),
                   title: Text(
                     'Settings',
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
                   ),
@@ -140,7 +168,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
                   ),
@@ -167,7 +195,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
                   ),
@@ -189,7 +217,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 color: Colors.black,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
                 letterSpacing: .5,
               ),
             ),

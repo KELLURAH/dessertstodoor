@@ -18,29 +18,53 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final searchController = TextEditingController();
-
+    List _foundUsers = [];
     List<Map> products = [
       {
         'title': 'Cakes',
         'image': 'assets/images/cake.png',
         'color': PRIMARY_COLOR,
+        'filter': 'cakes'
       },
       {
         'title': 'Cookies',
         'image': 'assets/images/cookie.png',
         'color': SECOND_COLOR,
+        'filter': 'cookies'
       },
       {
         'title': 'Cup Cakes',
         'image': 'assets/images/cupcake.png',
         'color': OFFERS_COLOR,
+        'filter': 'cupcakes'
       },
       {
         'title': 'Desserts',
         'image': 'assets/images/dessert.png',
-        'color': Colors.green
+        'color': Colors.green,
+        'filter': 'desserts'
       },
     ];
+    List<Map<dynamic, dynamic>> _allPastries = products;
+    void _runFilter(String enteredKeyword) {
+      List<Map<String, dynamic>>? results = [];
+      if (enteredKeyword.isEmpty) {
+        // if the search field is empty or only contains white-space, we'll display all users
+        results = _allPastries.cast<Map<String, dynamic>>();
+      } else {
+        results = _allPastries
+            .where((user) => user['filter']
+                .toLowerCase()
+                .contains(enteredKeyword.toLowerCase()))
+            .cast<Map<String, dynamic>>()
+            .toList();
+        // we use the toLowerCase() method to make it case-insensitive
+      }
+      setState(() {
+        _foundUsers = results!;
+      });
+    }
+
     List<Map> _vendors = [
       {
         'name': 'Tom\'s Bakery',
@@ -92,8 +116,14 @@ class HomePageState extends State<HomePage> {
                 // ),
                 // const Divider(),
                 addVertical(10),
-                buildTextFormField('Search for Pastries', 'Search',
-                    searchController, true, SECOND_COLOR.withOpacity(0.35)),
+                buildTextFormField(
+                  'Search for Pastries',
+                  'Search',
+                  searchController,
+                  true,
+                  SECOND_COLOR.withOpacity(0.35),
+                  onChanged: () => _runFilter(searchController.text),
+                ),
                 addVertical(20),
                 Text(
                   'Our Products ',
@@ -156,6 +186,7 @@ class HomePageState extends State<HomePage> {
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return VendorCard(
+                          isOffersPage: false,
                           title: _vendors[index]['name'],
                           image: _vendors[index]['image'],
                         );

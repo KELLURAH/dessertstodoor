@@ -20,7 +20,7 @@ class DashCards extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.3,
+      height: size.height * 0.35,
       width: size.width * 0.3,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -40,7 +40,7 @@ class DashCards extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            height: size.height * 0.125,
+            height: size.height * 0.1325,
             width: size.width,
             decoration: const BoxDecoration(
               // color: color ?? Colors.teal[300],
@@ -60,7 +60,7 @@ class DashCards extends StatelessWidget {
             child: Image.asset(
               image,
               fit: BoxFit.cover,
-              scale: .5,
+              // scale: 1.5,
             ),
           ),
           addVertical(10),
@@ -69,10 +69,10 @@ class DashCards extends StatelessWidget {
             child: Text(
               title,
               style: GoogleFonts.poppins(
-                fontSize: 18,
+                fontSize: 16,
                 letterSpacing: .5,
                 color: Colors.black,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),

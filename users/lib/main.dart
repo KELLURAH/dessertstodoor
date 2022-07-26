@@ -4,6 +4,9 @@ import 'package:users/features/Authentication/presentation/pages/Registration.da
 import 'package:users/features/Generic/Index.dart';
 import 'package:users/features/Generic/Onboarding.dart';
 import 'package:users/features/Generic/Splash.dart';
+import 'package:users/features/LandingPage/presentation/pages/Homepage.dart';
+import 'package:users/features/LandingPage/presentation/pages/Offers.dart';
+import 'package:users/features/Vendors/presentation/pages/SeeMoreVendors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,10 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // primarySwatch: Colors.blue,
-      ),
+          // primarySwatch: Colors.blue,
+          ),
       // home: const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
-      // home: const SplashScreen(),  
+      // home: const SplashScreen(),
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
@@ -29,6 +32,9 @@ class MyApp extends StatelessWidget {
         '/r': (context) => const Registration(),
         '/l': (context) => const Login(),
         '/h': (context) => const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
+        '/vendors': (context) => const Vendors(),
+        '/home':(context) => const HomePage(),
+        '/offers':(context) => const OffersPage(),
       },
     );
   }

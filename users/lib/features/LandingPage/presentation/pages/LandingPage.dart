@@ -47,7 +47,7 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                normalText('Summary'),
+                subText('Summary', fontSize: 16),
                 const Divider(),
                 addVertical(10),
                 Container(
@@ -167,29 +167,82 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 addVertical(15),
-                normalText('Categories'),
+                subText('Categories', fontSize: 16),
                 const Divider(thickness: .45),
                 addVertical(15),
+                Column(
+                  children: [
+                    SizedBox(
+                      height: size.height * 0.2,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                // setState(() {
+                                //   showAvg = !showAvg;
+                                // });
+                                Navigator.pushNamed(context, '/vendors');
+                              },
+                              child: const DashCards(
+                                title: 'All Vendors',
+                                subtitle: '',
+                                image: 'assets/images/vendors.png',
+                                backgroundColor: PRIMARY_COLOR,
+                              ),
+                            ),
+                          ),
+                          addHorizontal(10),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () =>
+                                  Navigator.pushNamed(context, '/offers'),
+                              child: const DashCards(
+                                title: 'All Offers',
+                                subtitle: '',
+                                image: 'assets/images/discount.png',
+                                backgroundColor: SECOND_COLOR,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                addVertical(size.height * 0.015),
                 SizedBox(
                   height: size.height * 0.2,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Expanded(
-                        child: DashCards(
-                          title: 'All Vendors',
-                          subtitle: '',
-                          image: 'assets/images/cupcake.png',
-                          backgroundColor: PRIMARY_COLOR,
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            // setState(() {
+                            //   showAvg = !showAvg;
+                            // });
+                            Navigator.pushNamed(context, '/vendors');
+                          },
+                          child: const DashCards(
+                            title: 'Top Vendors',
+                            subtitle: '',
+                            image: 'assets/images/vendors.png',
+                            backgroundColor: OFFERS_COLOR,
+                          ),
                         ),
                       ),
                       addHorizontal(10),
-                      const Expanded(
-                        child: DashCards(
-                          title: 'All Offers',
-                          subtitle: '',
-                          image: 'assets/images/cupcake.png',
-                          backgroundColor: SECOND_COLOR,
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () => Navigator.pushNamed(context, '/offers'),
+                          child: const DashCards(
+                            title: 'Menu',
+                            subtitle: '',
+                            image: 'assets/images/menu.png',
+                            backgroundColor: Colors.green,
+                          ),
                         ),
                       ),
                     ],

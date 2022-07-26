@@ -46,8 +46,9 @@ TextFormField buildTextFormField(
   String label,
   TextEditingController controller,
   bool isSearch,
-  Color color,
-) {
+  Color color, {
+  Function? onChanged,
+}) {
   return TextFormField(
     decoration: InputDecoration(
       hintText: hint,
@@ -92,15 +93,9 @@ TextFormField buildTextFormField(
     keyboardType: TextInputType.text,
     onChanged: (val) {
       controller.text = val;
+      onChanged;
     },
-    // onEditingComplete: () {
-    //   if (emailController.text.isNotEmpty &&
-    //       passwordController.text.isNotEmpty) {
-    //     setState(() {
-    //       isFilled = true;
-    //     });
-    //   }
-    // },
+    onEditingComplete: () {},
   );
 }
 
@@ -116,11 +111,22 @@ Text normalText(String? text) {
   );
 }
 
+Text subText(String? text, {Color? color, double? fontSize}) {
+  return Text(
+    text!,
+    style: GoogleFonts.poppins(
+      fontSize: fontSize ?? 16,
+      fontWeight: FontWeight.w500,
+      color: color ?? Colors.black,
+      letterSpacing: .25,
+    ),
+  );
+}
+
 SizedBox OnboardingDetails(
-  String image,{
+  String image, {
   Size? size,
   String? title,
-  
   String? description,
 }) {
   return SizedBox(
@@ -132,7 +138,6 @@ SizedBox OnboardingDetails(
           height: size.height * 0.65,
           child: SvgPicture.asset(
             image,
-
             fit: BoxFit.contain,
           ),
         ),

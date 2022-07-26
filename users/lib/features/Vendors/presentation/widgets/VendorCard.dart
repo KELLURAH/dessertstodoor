@@ -4,19 +4,24 @@ import 'package:users/core/utils/Colors.dart';
 
 class VendorCard extends StatelessWidget {
   final String title, image;
-  const VendorCard({Key? key, required this.title, required this.image})
-      : super(key: key);
+  final bool isOffersPage;
+  const VendorCard({
+    Key? key,
+    required this.title,
+    required this.image,
+    required this.isOffersPage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.all(10),
       height: 200,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: SECOND_COLOR.withOpacity(0.045),
-        borderRadius: BorderRadius.circular(10),
+        color: isOffersPage ? OFFERS_COLOR.withOpacity(0.05) : SECOND_COLOR.withOpacity(0.045),
+        borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.15),
