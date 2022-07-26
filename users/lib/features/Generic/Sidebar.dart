@@ -17,9 +17,9 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: PRIMARY_COLOR.withOpacity(0.2)),
               currentAccountPicture: CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.grey[400],
-                child: Image.asset('assets/images/logo.png', height: 70),
+                radius: 65,
+                backgroundColor: Colors.white60,
+                child: Image.asset('assets/images/logo.png'),
               ),
               accountName: Text(
                 'Hello, $name!',
@@ -45,9 +45,9 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
               child: Card(
                 elevation: .5,
                 child: ListTile(
-                  leading: const Icon(
+                  leading: Icon(
                     Icons.person_outline_outlined,
-                    // color: SECOND_COLOR,
+                    color: SECOND_COLOR.withOpacity(0.35),
                   ),
                   title: Text(
                     'Profile',
@@ -89,14 +89,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                     ),
                   ),
                   onTap: () {
-                    // Update the state of the app
                     Navigator.pop(context!);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => const Notifications(),
-                    //   ),
-                    // );
                   },
                 ),
               ),
@@ -107,7 +100,8 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 // color: LABEL_COLOR,
                 elevation: .5,
                 child: ListTile(
-                  leading: Image.asset('assets/images/discount.png', height: 30),
+                  leading:
+                      Image.asset('assets/images/discount.png', height: 30),
                   title: Text(
                     'Promo Codes',
                     style: GoogleFonts.poppins(

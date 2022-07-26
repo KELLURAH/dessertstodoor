@@ -125,14 +125,7 @@ class HomePageState extends State<HomePage> {
                   onChanged: () => _runFilter(searchController.text),
                 ),
                 addVertical(20),
-                Text(
-                  'Our Products ',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
-                ),
+                subText('Our Products'),
                 const Divider(thickness: .45, color: Colors.black54),
                 // addVertical(10),
                 // buildTextFormField(
@@ -163,14 +156,7 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
                 addVertical(20),
-                Text(
-                  'Top Vendors',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
-                ),
+                subText('Top Vendors'),
                 const Divider(thickness: .45, color: Colors.black54),
                 Container(
                   height: size.height * 0.55,

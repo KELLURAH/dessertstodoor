@@ -224,6 +224,7 @@ class _LoginState extends State<Login> {
                         },
                         child: Text(
                           'REGISTER',
+
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             letterSpacing: .5,
@@ -469,7 +470,7 @@ class _LoginState extends State<Login> {
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: SECOND_COLOR, width: 1.5),
+          borderSide: const BorderSide(color: Colors.black54, width: 1.5),
         ),
       ),
       keyboardType: isPhone ? TextInputType.phone : TextInputType.text,

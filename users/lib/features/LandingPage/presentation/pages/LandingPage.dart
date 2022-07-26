@@ -125,14 +125,14 @@ class _LandingPageState extends State<LandingPage> {
                         minX: 0,
                         maxX: 7,
                         minY: 0,
-                        maxY: 5,
+                        maxY: 4,
                         lineBarsData: [
                           LineChartBarData(
                             spots: const [
                               FlSpot(0, 3),
                               FlSpot(2.6, 2),
-                              FlSpot(4.9, 5),
-                              FlSpot(6.8, 3.1),
+                              FlSpot(4.9, 4),
+                              FlSpot(6.8, 3),
                               FlSpot(7, 4.2),
                             ],
                             isCurved: true,
@@ -150,7 +150,7 @@ class _LandingPageState extends State<LandingPage> {
                               show: true,
                               gradient: LinearGradient(
                                 colors: gradientColors
-                                    .map((color) => color.withOpacity(0.3))
+                                    .map((color) => color.withOpacity(0.25))
                                     .toList(),
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,

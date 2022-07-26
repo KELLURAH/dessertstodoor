@@ -32,6 +32,28 @@ class OffersPageState extends State<OffersPage> {
       'image': 'assets/images/cookie.png',
     },
   ];
+  List<Map> offers = [
+    {
+      'name': 'Cakes',
+      'image': 'assets/images/cake.png',
+      'discount': '10',
+    },
+    {
+      'name': 'Selma\'s Cookies Giveaways',
+      'image': 'assets/images/cookie.png',
+      'discount': '10',
+    },
+    {
+      'name': 'Esther\'s Cakes Promo',
+      'image': 'assets/images/cupcake.png',
+      'discount': '10',
+    },
+    {
+      'name': 'Desserts',
+      'image': 'assets/images/dessert.png',
+      'discount': '10',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -59,12 +81,12 @@ class OffersPageState extends State<OffersPage> {
                 height: MediaQuery.of(context).size.height * 0.25,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: offers.length,
                   itemBuilder: (context, index) {
-                    return const OfferCard(
-                      discount: '10% OFF',
-                      image: 'assets/images/cupcake.png',
-                      title: 'B. Foster\'s Anniversary Sales',
+                    return OfferCard(
+                      discount: '${offers[index]['discount']}% OFF',
+                      image: offers[index]['image'],
+                      title: offers[index]['name'],
                     );
                   },
                   separatorBuilder: (context, index) => addHorizontal(15),

@@ -54,10 +54,10 @@ class VendorCard extends StatelessWidget {
                 ),
                 child: Text(
                   title,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.w500,
                     color: Colors.black,
-                    fontSize: 18,
+                    fontSize: 16,
                   ),
                 ),
               ),

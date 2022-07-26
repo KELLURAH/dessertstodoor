@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:users/core/utils/Colors.dart';
 import 'package:users/features/Generic/Onboarding.dart';
 // import 'package:potbellyriderv2/pages/auth/login_screen.dart';
 // import 'package:potbellyriderv2/theme/theme_images.dart';
@@ -22,13 +24,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(seconds: 2),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OnBoarding(),
-        ),
-      ),
+      const Duration(seconds: 4),
+      () => Navigator.pushReplacementNamed(context, '/o'),
     );
   }
 
@@ -54,10 +51,25 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/logo.png',
-                  // height: deviceSize.height * 0.5,
-                  width: deviceSize.width * 0.5,
+                Stack(
+                  children: [
+                    Center(
+                      child: AvatarGlow(
+                        glowColor: SECOND_COLOR.withOpacity(0.35),
+                        endRadius: 120,
+                        repeat: true,
+                        showTwoGlows: true,
+                        child: Container(),
+                      ),
+                    ),
+                    Center(
+                      child: Image.asset(
+                        'assets/images/logo.png',
+                        // height: deviceSize.height * 0.5,
+                        width: deviceSize.width,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 8),
                 Text(
