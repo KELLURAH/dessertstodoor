@@ -1,6 +1,4 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:users/core/utils/Colors.dart';
 import 'package:users/features/LandingPage/presentation/pages/Offers.dart';

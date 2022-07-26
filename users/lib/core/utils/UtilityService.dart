@@ -59,11 +59,11 @@ class UtilityService {
       context: context,
       builder: (BuildContext? context) {
         return AlertDialog(
-          title: Text('Done'),
-          content: Text('Add Success'),
+          title: const Text('Done'),
+          content: const Text('Add Success'),
           actions: <Widget>[
             OutlinedButton(
-              child: Text('Ok'),
+              child: const Text('Ok'),
               onPressed: () {
                 Navigator.pop(context!);
               },
@@ -172,7 +172,7 @@ class UtilityService {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                     ],
@@ -208,9 +208,9 @@ class UtilityService {
                 decoration: BoxDecoration(
                   color: backgroundColor ?? Colors.blueAccent,
                   borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0.5, 0.5),
+                  boxShadow:const [
+                     BoxShadow(
+                      offset:  Offset(0.5, 0.5),
                       spreadRadius: 0.2,
                       blurRadius: 0.2,
                     ),
@@ -263,7 +263,7 @@ class UtilityService {
                           color: color,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
-                            BoxShadow(
+                            const BoxShadow(
                               offset: Offset(0.4, 0.5),
                               spreadRadius: 0.2,
                               blurRadius: 0.2,
@@ -273,7 +273,7 @@ class UtilityService {
                         child: Center(
                           child: Text(
                             buttonText,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 decoration: TextDecoration.none,
                                 fontSize: 17,
                                 fontWeight: FontWeight.w400,
@@ -282,7 +282,7 @@ class UtilityService {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                   ],
@@ -322,7 +322,7 @@ class UtilityService {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
-                      BoxShadow(
+                      const BoxShadow(
                         offset: Offset(0.5, 0.5),
                         spreadRadius: 0.2,
                         blurRadius: 0.2,
@@ -379,7 +379,7 @@ class UtilityService {
                                 color: yesButtonColor,
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
-                                  BoxShadow(
+                                  const BoxShadow(
                                     offset: Offset(0.4, 0.5),
                                     spreadRadius: 0.2,
                                     blurRadius: 0.2,
@@ -389,7 +389,7 @@ class UtilityService {
                               child: Center(
                                 child: Text(
                                   buttonLabel ?? 'Yes',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       decoration: TextDecoration.none,
                                       fontSize: 18,
                                       fontWeight: FontWeight.w500,
@@ -398,7 +398,7 @@ class UtilityService {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           GestureDetector(
@@ -410,14 +410,14 @@ class UtilityService {
                                 color: noButtonColor,
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
-                                  BoxShadow(
-                                    offset: Offset(0.4, 0.5),
+                                  const BoxShadow(
+                                    offset: const Offset(0.4, 0.5),
                                     spreadRadius: 0.2,
                                     blurRadius: 0.2,
                                   )
                                 ],
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   'No',
                                   style: TextStyle(
@@ -530,7 +530,7 @@ class UtilityService {
                           child: Center(
                             child: Text(
                               buttonLabel ?? 'Yes',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   decoration: TextDecoration.none,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,

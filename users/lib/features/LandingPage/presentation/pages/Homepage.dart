@@ -171,10 +171,15 @@ class HomePageState extends State<HomePage> {
                       itemCount: _vendors.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return VendorCard(
-                          isOffersPage: false,
-                          title: _vendors[index]['name'],
-                          image: _vendors[index]['image'],
+                        return GestureDetector(
+                          onTap: () {
+                            // TODO Details about vendor, adding to cart
+                          },
+                          child: VendorCard(
+                            isOffersPage: false,
+                            title: _vendors[index]['name'],
+                            image: _vendors[index]['image'],
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) {

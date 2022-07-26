@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
 import 'package:users/features/Vendors/presentation/widgets/OfferCard.dart';
 import 'package:users/features/Vendors/presentation/widgets/VendorCard.dart';

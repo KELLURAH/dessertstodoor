@@ -4,9 +4,6 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
-import 'package:users/features/Generic/Onboarding.dart';
-// import 'package:potbellyriderv2/pages/auth/login_screen.dart';
-// import 'package:potbellyriderv2/theme/theme_images.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
