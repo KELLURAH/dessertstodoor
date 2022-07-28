@@ -150,8 +150,8 @@ class _LoginState extends State<Login> {
                     (val) {
                       return val.isEmpty
                           ? 'This is a required field and cannot be empty'
-                          : val.length < 8
-                              ? 'Password must be at least 8 characters long'
+                          : val.length < 6
+                              ? 'Password must be at least 6 characters long'
                               : null;
                     },
                   ),

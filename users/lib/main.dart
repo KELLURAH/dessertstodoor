@@ -20,9 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-          // primarySwatch: Colors.blue,
-          ),
+      theme: ThemeData(),
       // home: const Index(email: 'georonathan47@mail.com', name: 'Test Name'),
       // home: const SplashScreen(),
       initialRoute: '/',

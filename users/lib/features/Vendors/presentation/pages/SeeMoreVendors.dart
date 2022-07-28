@@ -61,7 +61,7 @@ class _VendorsState extends State<Vendors> {
               ),
               addVertical(size.height * 0.0025),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: subText('text'),
               ),
             ],

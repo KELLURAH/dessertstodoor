@@ -107,15 +107,6 @@ class HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Text(
-                //   'Welcome, ${widget.name}',
-                //   style: GoogleFonts.poppins(
-                //     fontSize: 18,
-                //     fontWeight: FontWeight.w500,
-                //     color: Colors.black,
-                //   ),
-                // ),
-                // const Divider(),
                 addVertical(10),
                 buildTextFormField(
                   'Search for Pastries',
@@ -126,14 +117,8 @@ class HomePageState extends State<HomePage> {
                   onChanged: () => _runFilter(searchController.text),
                 ),
                 addVertical(20),
-                subText('Our Products'),
+                subText('Categories'),
                 const Divider(thickness: .45, color: Colors.black54),
-                // addVertical(10),
-                // buildTextFormField(
-                //   'Search for Pastries',
-                //   'Search',D
-                //   searchController,
-                // ),
                 addVertical(10),
                 SizedBox(
                   height: size.height * 0.2,
@@ -157,7 +142,7 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
                 addVertical(20),
-                subText('Top Vendors'),
+                subText('Vendors'),
                 const Divider(thickness: .45, color: Colors.black54),
                 Container(
                   height: size.height * 0.55,
