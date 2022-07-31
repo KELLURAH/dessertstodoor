@@ -11,33 +11,51 @@ SizedBox addHorizontal(double width) {
   return SizedBox(width: width);
 }
 
-AppBar appbar(bool isHome, {String? title, Color? backgroundColor}) {
+AppBar appbar(
+    {String? title, Color? backgroundColor, required Function? onPressed}) {
   return AppBar(
     backgroundColor: backgroundColor ?? Colors.white,
-    leading: null,
+    leading: IconButton(
+      icon: const Icon(
+        Icons.menu,
+        size: 35,
+        color: Colors.black,
+      ),
+      onPressed: () => onPressed!,
+    ),
     elevation: 0.25,
     title: Text(
       title!,
       style: GoogleFonts.poppins(
-        color: isHome ? Colors.black : Colors.white,
+        color: Colors.black,
         fontWeight: FontWeight.w500,
         fontSize: 18,
       ),
     ),
-    actions: isHome
-        ? [
-            IconButton(
-              icon: const Icon(
-                Icons.shopping_cart,
-                color: Colors.black,
-              ),
-              tooltip: 'Open shopping cart',
-              onPressed: () {
-                // handle the press
-              },
-            ),
-          ]
-        : null,
+  );
+}
+
+AppBar appBar(
+    {String? title, Color? backgroundColor, required Function? onPressed}) {
+  return AppBar(
+    backgroundColor: backgroundColor ?? Colors.white,
+    leading: IconButton(
+      icon: const Icon(
+        Icons.navigate_before,
+        size: 35,
+        color: Colors.black,
+      ),
+      onPressed: () => onPressed!,
+    ),
+    elevation: 0.25,
+    title: Text(
+      title!,
+      style: GoogleFonts.poppins(
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
+        fontSize: 18,
+      ),
+    ),
   );
 }
 
@@ -168,6 +186,21 @@ SizedBox OnboardingDetails(
           ],
         ),
       ],
+    ),
+  );
+}
+
+Container screenBody({required List<Widget>? children, required Size size}) {
+  return Container(
+    height: size.height,
+    decoration: const BoxDecoration(color: BACKGROUND_COLOR),
+    child: SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 7),
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children!,
+      ),
     ),
   );
 }

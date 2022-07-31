@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../core/components/dashCards.dart';
-import '../../../../core/components/widgetFunctions.dart';
-import '../../../../core/utils/Colors.dart';
-
-
+import '../../../../../core/components/dashCards.dart';
+import '../../../../../core/components/widgetFunctions.dart';
+import '../../../../../core/utils/Colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -90,10 +88,25 @@ class HomePageState extends State<HomePage> {
     final scrollController = ScrollController();
     return Scaffold(
       // drawer: Sidebar(),
-      appBar: appbar(
-        true,
-        title: 'Home',
-        backgroundColor: SECOND_COLOR,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        // leading: IconButton(
+        //   icon: const Icon(
+        //     Icons.menu,
+        //     size: 35,
+        //     color: Colors.black,
+        //   ),
+        //   onPressed: () => ,
+        // ),
+        elevation: 0.25,
+        title: Text(
+          'Homepage',
+          style: GoogleFonts.poppins(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+          ),
+        ),
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),

@@ -1,11 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:vendors/core/utils/Colors.dart';
+import 'package:vendors/src/features/LandingPage/presentation/pages/Homepage.dart';
 import '../../core/components/ProgressDialog.dart';
 import '../../core/utils/UtilityService.dart';
-import '../src/LandingPage/presentation/pages/Homepage.dart';
-import '../src/LandingPage/presentation/pages/LandingPage.dart';
-import '../src/LandingPage/presentation/pages/Offers.dart';
+import '../src/features/LandingPage/presentation/pages/LandingPage.dart';
 
 class Index extends StatefulWidget {
   final String name;
@@ -70,8 +71,8 @@ class _IndexState extends State<Index> {
     // Provider.of<AppData>(context, listen: false).updateUserData(customer);
     if (index == 0) {
       return LandingPage(email: widget.email, name: widget.name);
-      // } else if (index == 1) {
-      //   return const HomePage();
+      } else if (index == 1) {
+        return const HomePage();
       // } else if (index == 2) {
       //   //   return const PharmacistsPage();
       //   return const OffersPage();

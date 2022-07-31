@@ -20,7 +20,9 @@ class VendorCard extends StatelessWidget {
       height: 200,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: isOffersPage ? OFFERS_COLOR.withOpacity(0.05) : SECOND_COLOR.withOpacity(0.045),
+        color: isOffersPage
+            ? OFFERS_COLOR.withOpacity(0.05)
+            : SECOND_COLOR.withOpacity(0.045),
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
@@ -54,7 +56,7 @@ class VendorCard extends StatelessWidget {
                 ),
                 child: Text(
                   title,
-                  style: GoogleFonts.raleway(
+                  style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                     fontSize: 16,

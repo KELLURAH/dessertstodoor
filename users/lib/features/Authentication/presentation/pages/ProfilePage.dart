@@ -51,7 +51,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(false, title: 'Profile Settings', backgroundColor: SECOND_COLOR),
+      appBar: appbar(false,
+          title: 'Profile Settings', backgroundColor: SECOND_COLOR),
       persistentFooterButtons: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35.0),
@@ -223,12 +224,12 @@ class _ProfilePageState extends State<ProfilePage> {
                       labelText: 'Phone Number',
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       hintText: '020 xxx xxxx',
-                      hintStyle: GoogleFonts.raleway(
+                      hintStyle: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                         color: Colors.black,
                       ),
-                      labelStyle: GoogleFonts.raleway(
+                      labelStyle: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
@@ -265,7 +266,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             'Male',
-                            style: GoogleFonts.raleway(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
@@ -282,7 +283,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             'Female',
-                            style: GoogleFonts.raleway(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
@@ -389,12 +390,12 @@ Widget buildTextField(
         labelText: labelText,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintText: placeholder,
-        hintStyle: GoogleFonts.raleway(
+        hintStyle: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: Colors.black,
         ),
-        labelStyle: GoogleFonts.raleway(
+        labelStyle: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w400,
           color: Colors.black,

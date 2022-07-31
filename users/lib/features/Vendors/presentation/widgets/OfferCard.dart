@@ -54,7 +54,7 @@ class OfferCard extends StatelessWidget {
                 ),
                 child: Text(
                   title,
-                  style: GoogleFonts.raleway(
+                  style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                     fontSize: 14,
@@ -78,7 +78,7 @@ class OfferCard extends StatelessWidget {
                 ),
                 child: Text(
                   discount,
-                  style: GoogleFonts.raleway(
+                  style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     color: Colors.black,
                     fontSize: 14,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vendors/core/utils/Colors.dart';
 import '../core/utils/Colors.dart';
+import '../src/features/Settings/presentation/pages/SettingsPage.dart';
 
 Widget Sidebar({BuildContext? context, String? email, String? name}) {
   return Drawer(
@@ -37,38 +38,38 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Card(
-                elevation: .5,
-                child: ListTile(
-                  leading: Icon(
-                    Icons.person_outline_outlined,
-                    color: SECOND_COLOR.withOpacity(0.35),
-                  ),
-                  title: Text(
-                    'Profile',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: .45,
-                    ),
-                  ),
-                  onTap: () {
-                    // Update the state of the app
-                    Navigator.pop(context!);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) =>
-                    //         ProfilePage(name: name!, email: email),
-                    //   ),
-                    // );
-                  },
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            //   child: Card(
+            //     elevation: .5,
+            //     child: ListTile(
+            //       leading: Icon(
+            //         Icons.person_outline_outlined,
+            //         color: SECOND_COLOR.withOpacity(0.35),
+            //       ),
+            //       title: Text(
+            //         '',
+            //         style: GoogleFonts.poppins(
+            //           fontSize: 14,
+            //           color: Colors.black,
+            //           fontWeight: FontWeight.w400,
+            //           letterSpacing: .45,
+            //         ),
+            //       ),
+            //       onTap: () {
+            //         // Update the state of the app
+            //         Navigator.pop(context!);
+            //         // Navigator.push(
+            //         //   context,
+            //         //   MaterialPageRoute(
+            //         //     builder: (context) =>
+            //         //         ProfilePage(name: name!, email: email),
+            //         //   ),
+            //         // );
+            //       },
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Card(
@@ -138,12 +139,12 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                   ),
                   onTap: () {
                     Navigator.pop(context!);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => const SettingsPage(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsPage(),
+                      ),
+                    );
                   },
                 ),
               ),

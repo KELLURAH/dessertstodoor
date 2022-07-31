@@ -8,9 +8,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vendors/core/utils/Colors.dart';
 
-import '../../../../core/components/loading.dart';
-import '../../../../core/components/widgetFunctions.dart';
-import '../../../../core/utils/UtilityService.dart';
+import '../../../../../core/components/loading.dart';
+import '../../../../../core/components/widgetFunctions.dart';
+import '../../../../../core/utils/UtilityService.dart';
 
 class Registration extends StatefulWidget {
   // final Function toggleView;
@@ -326,7 +326,7 @@ class _RegistrationState extends State<Registration> {
       setState(() {
         isAPIcall = false;
       });
-      Navigator.pushReplacementNamed(context, '/h');
+      Navigator.pushReplacementNamed(context, '/otp');
       // var res = await PhamarxAPI().authData(data, LOGIN_URL);
       // var body = json.decode(res.body);
       // if (res.statusCode == 200) {

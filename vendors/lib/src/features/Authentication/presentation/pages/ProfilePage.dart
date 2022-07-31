@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../core/components/widgetFunctions.dart';
-import '../../../../core/utils/Colors.dart';
+import '../../../../../core/components/widgetFunctions.dart';
+import '../../../../../core/utils/Colors.dart';
 
 class ProfilePage extends StatefulWidget {
   final String name;
@@ -51,7 +51,26 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(false, title: 'Profile Settings', backgroundColor: SECOND_COLOR),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        // leading: IconButton(
+        //   icon: const Icon(
+        //     Icons.menu,
+        //     size: 35,
+        //     color: Colors.black,
+        //   ),
+        //   onPressed: () => ,
+        // ),
+        elevation: 0.25,
+        title: Text(
+          'Profile Settings',
+          style: GoogleFonts.poppins(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+          ),
+        ),
+      ),
       persistentFooterButtons: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35.0),
@@ -223,12 +242,12 @@ class _ProfilePageState extends State<ProfilePage> {
                       labelText: 'Phone Number',
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       hintText: '020 xxx xxxx',
-                      hintStyle: GoogleFonts.raleway(
+                      hintStyle: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                         color: Colors.black,
                       ),
-                      labelStyle: GoogleFonts.raleway(
+                      labelStyle: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
@@ -265,7 +284,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             'Male',
-                            style: GoogleFonts.raleway(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
@@ -282,7 +301,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             'Female',
-                            style: GoogleFonts.raleway(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
@@ -389,12 +408,12 @@ Widget buildTextField(
         labelText: labelText,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintText: placeholder,
-        hintStyle: GoogleFonts.raleway(
+        hintStyle: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: Colors.black,
         ),
-        labelStyle: GoogleFonts.raleway(
+        labelStyle: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w400,
           color: Colors.black,

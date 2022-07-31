@@ -1,12 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-
-import '../../../../core/components/widgetFunctions.dart';
-import '../../../../core/utils/Colors.dart';
-import '../../../../Generic/Sidebar.dart';
-import '../../../../core/components/cards.dart';
-
+import '../../../../../core/components/widgetFunctions.dart';
+import '../../../../../core/utils/Colors.dart';
+import '../../../../../Generic/Sidebar.dart';
+import '../../../../../core/components/cards.dart';
 
 class LandingPage extends StatefulWidget {
   final String name;
@@ -33,10 +32,29 @@ class _LandingPageState extends State<LandingPage> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: Sidebar(name: widget.name, email: widget.email, context: context),
-      appBar: appbar(
-        false,
-        title: 'Dashboard',
-        backgroundColor: PRIMARY_COLOR,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu,
+                size: 35,
+                color: Colors.black,
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            );
+          }
+        ),
+        elevation: 0.25,
+        title: Text(
+          'Homepage',
+          style: GoogleFonts.poppins(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+          ),
+        ),
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -176,79 +194,81 @@ class _LandingPageState extends State<LandingPage> {
                   children: [
                     SizedBox(
                       height: size.height * 0.2,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                // setState(() {
-                                //   showAvg = !showAvg;
-                                // });
-                                Navigator.pushNamed(context, '/vendors');
-                              },
-                              child: const DashCards(
-                                title: 'All Vendors',
-                                subtitle: '',
-                                image: 'assets/images/vendors.png',
-                                backgroundColor: PRIMARY_COLOR,
-                              ),
-                            ),
-                          ),
-                          addHorizontal(10),
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () =>
-                                  Navigator.pushNamed(context, '/offers'),
-                              child: const DashCards(
-                                title: 'All Offers',
-                                subtitle: '',
-                                image: 'assets/images/discount.png',
-                                backgroundColor: SECOND_COLOR,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: Container(),
+                      // Row(
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   children: [
+                      //     Expanded(
+                      //       child: GestureDetector(
+                      //         onTap: () {
+                      //           // setState(() {
+                      //           //   showAvg = !showAvg;
+                      //           // });
+                      //           Navigator.pushNamed(context, '/vendors');
+                      //         },
+                      //         child: const DashCards(
+                      //           title: 'All Vendors',
+                      //           subtitle: '',
+                      //           image: 'assets/images/vendors.png',
+                      //           backgroundColor: PRIMARY_COLOR,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     addHorizontal(10),
+                      //     Expanded(
+                      //       child: GestureDetector(
+                      //         onTap: () =>
+                      //             Navigator.pushNamed(context, '/offers'),
+                      //         child: const DashCards(
+                      //           title: 'All Offers',
+                      //           subtitle: '',
+                      //           image: 'assets/images/discount.png',
+                      //           backgroundColor: SECOND_COLOR,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                     ),
                   ],
                 ),
                 addVertical(size.height * 0.015),
                 SizedBox(
                   height: size.height * 0.2,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            // setState(() {
-                            //   showAvg = !showAvg;
-                            // });
-                            Navigator.pushNamed(context, '/vendors');
-                          },
-                          child: const DashCards(
-                            title: 'Top Vendors',
-                            subtitle: '',
-                            image: 'assets/images/vendors.png',
-                            backgroundColor: OFFERS_COLOR,
-                          ),
-                        ),
-                      ),
-                      addHorizontal(10),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () => Navigator.pushNamed(context, '/offers'),
-                          child: const DashCards(
-                            title: 'Menu',
-                            subtitle: '',
-                            image: 'assets/images/menu.png',
-                            backgroundColor: Colors.green,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: Container(),
+                  //  Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     Expanded(
+                  //       child: GestureDetector(
+                  //         onTap: () {
+                  //           // setState(() {
+                  //           //   showAvg = !showAvg;
+                  //           // });
+                  //           Navigator.pushNamed(context, '/vendors');
+                  //         },
+                  //         child: const DashCards(
+                  //           title: 'Top Vendors',
+                  //           subtitle: '',
+                  //           image: 'assets/images/vendors.png',
+                  //           backgroundColor: OFFERS_COLOR,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     addHorizontal(10),
+                  //     Expanded(
+                  //       child: GestureDetector(
+                  //         onTap: () => Navigator.pushNamed(context, '/offers'),
+                  //         child: const DashCards(
+                  //           title: 'Menu',
+                  //           subtitle: '',
+                  //           image: 'assets/images/menu.png',
+                  //           backgroundColor: Colors.green,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ),
               ],
             ),

@@ -20,7 +20,7 @@ class UtilityService {
             icon: icon,
             message: Text(
               message!,
-              style: GoogleFonts.raleway(
+              style: GoogleFonts.poppins(
                 color: Colors.black54,
                 letterSpacing: .3,
                 fontWeight: FontWeight.w500,
@@ -45,7 +45,7 @@ class UtilityService {
             icon: icon,
             message: Text(
               message!,
-              style: GoogleFonts.raleway(color: Colors.black54),
+              style: GoogleFonts.poppins(color: Colors.black54),
               maxLines: 2,
             ),
           ),
@@ -208,9 +208,9 @@ class UtilityService {
                 decoration: BoxDecoration(
                   color: backgroundColor ?? Colors.blueAccent,
                   borderRadius: BorderRadius.circular(10),
-                  boxShadow:const [
-                     BoxShadow(
-                      offset:  Offset(0.5, 0.5),
+                  boxShadow: const [
+                    BoxShadow(
+                      offset: Offset(0.5, 0.5),
                       spreadRadius: 0.2,
                       blurRadius: 0.2,
                     ),
@@ -512,7 +512,7 @@ class UtilityService {
                     addVertical(12),
                     Center(
                       child: GestureDetector(
-                        onTap: () =>onYes,
+                        onTap: () => onYes,
                         child: Container(
                           height: buttonHeight ?? 35,
                           width: buttonWidth ?? 64,

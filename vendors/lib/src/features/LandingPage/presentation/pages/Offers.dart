@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/components/widgetFunctions.dart';
-import '../../../../core/utils/Colors.dart';
+import '../../../../../core/components/widgetFunctions.dart';
+import '../../../../../core/utils/Colors.dart';
 
 class OffersPage extends StatefulWidget {
   const OffersPage({Key? key}) : super(key: key);
@@ -55,10 +56,25 @@ class OffersPageState extends State<OffersPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appbar(
-        false,
-        title: 'Vendors & Offers',
-        backgroundColor: OFFERS_COLOR,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        // leading: IconButton(
+        //   icon: const Icon(
+        //     Icons.menu,
+        //     size: 35,
+        //     color: Colors.black,
+        //   ),
+        //   onPressed: () => ,
+        // ),
+        elevation: 0.25,
+        title: Text(
+          'Offers',
+          style: GoogleFonts.poppins(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+          ),
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
