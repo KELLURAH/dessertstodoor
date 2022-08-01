@@ -7,6 +7,8 @@ import 'package:vendors/src/features/LandingPage/presentation/pages/Homepage.dar
 import '../../core/components/ProgressDialog.dart';
 import '../../core/utils/UtilityService.dart';
 import '../src/features/LandingPage/presentation/pages/LandingPage.dart';
+import '../src/features/LandingPage/presentation/pages/Offers.dart';
+import '../src/features/Settings/presentation/pages/SettingsPage.dart';
 
 class Index extends StatefulWidget {
   final String name;
@@ -73,12 +75,12 @@ class _IndexState extends State<Index> {
       return LandingPage(email: widget.email, name: widget.name);
       } else if (index == 1) {
         return const HomePage();
-      // } else if (index == 2) {
-      //   //   return const PharmacistsPage();
-      //   return const OffersPage();
-      //   // } else if (index == 3) {
-      //   //   return const SettingsScreen();
-      //   // } else if (index == 4) {
+      } else if (index == 2) {
+        //   return const PharmacistsPage();
+        return const OffersPage();
+        } else if (index == 3) {
+          return const SettingsPage();
+        // } else if (index == 4) {
       //   //   return const AccountScreen();
     } else {
       return null;
@@ -112,12 +114,12 @@ class _IndexState extends State<Index> {
           selectedColor: OFFERS_COLOR,
         ),
 
-        /// Search
-        // SalomonBottomBarItem(
-        //   icon: const Icon(Icons.search),
-        //   title: Text('Search'.toUpperCase()),
-        //   selectedColor: Colors.orange,
-        // ),
+        /// Settings
+        SalomonBottomBarItem(
+          icon: const Icon(Icons.settings),
+          title: Text('Settings'.toUpperCase()),
+          selectedColor: Colors.black,
+        ),
 
         /// Profile
         // SalomonBottomBarItem(

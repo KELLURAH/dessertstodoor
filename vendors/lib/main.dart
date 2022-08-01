@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vendors/Generic/Splash.dart';
+import 'package:vendors/src/features/Authentication/presentation/pages/ProfilePage.dart';
 
 import 'Generic/Index.dart';
 import 'Generic/Onboarding.dart';
@@ -35,6 +36,10 @@ class MyApp extends StatelessWidget {
             ),
         '/home': (context) => const HomePage(),
         '/offers': (context) => const OffersPage(),
+        '/profile': (context) => const ProfilePage(
+              email: 'georonathan47@mail.com',
+              name: 'Test Name',
+            ),
       },
     );
   }

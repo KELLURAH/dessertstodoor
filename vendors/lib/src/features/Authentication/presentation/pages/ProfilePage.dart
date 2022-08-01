@@ -53,14 +53,16 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        // leading: IconButton(
-        //   icon: const Icon(
-        //     Icons.menu,
-        //     size: 35,
-        //     color: Colors.black,
-        //   ),
-        //   onPressed: () => ,
-        // ),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(
+              Icons.navigate_before,
+              size: 35,
+              color: Colors.black,
+            ),
+            onPressed: () => Navigator.pop(context),
+          );
+        }),
         elevation: 0.25,
         title: Text(
           'Profile Settings',
