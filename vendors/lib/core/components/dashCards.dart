@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vendors/core/components/widgetFunctions.dart';
 
-
 class ProfileCard extends StatelessWidget {
   final String title;
   final String subtitle;
@@ -20,12 +19,14 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.4,
-      width: size.width * 0.4,
-      padding: const EdgeInsets.all(10),
+      height: size.height * 0.25,
+      width: size.width * 0.325,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: backgroundColor.withOpacity(0.1),
-        borderRadius: const BorderRadius.all(Radius.circular(25)),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(25),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.15),
@@ -35,40 +36,20 @@ class ProfileCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        // fit: StackFit.expand,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Stack(
+        fit: StackFit.expand,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
-            height: size.height * 0.125,
-            width: size.width,
-            decoration: const BoxDecoration(
-              // color: color ?? Colors.teal[300],
-              // gradient: LinearGradient(
-              //   begin: Alignment.centerRight,
-              //   end: Alignment.centerLeft,
-              //   colors: [
-              //     gradientColor1 ?? SECOND_COLOR_GRADIENT1,
-              //     gradientColor2 ?? SECOND_COLOR_GRADIENT2,
-              //   ],
-              // ),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
-            ),
-            child: Image.asset(image, fit: BoxFit.cover, scale: .5),
-          ),
-          addVertical(10),
+          Image.asset(image),
           Align(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.bottomCenter,
             child: Text(
               title,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 letterSpacing: .5,
                 color: Colors.black,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

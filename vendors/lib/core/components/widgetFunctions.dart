@@ -36,7 +36,9 @@ AppBar appbar(
 }
 
 AppBar appBar(
-    {String? title, Color? backgroundColor, required Function? onPressed}) {
+    {String? title,
+    Color? backgroundColor,
+    BuildContext? context}) {
   return AppBar(
     backgroundColor: backgroundColor ?? Colors.white,
     leading: IconButton(
@@ -45,7 +47,7 @@ AppBar appBar(
         size: 35,
         color: Colors.black,
       ),
-      onPressed: () => onPressed!,
+      onPressed: () => Navigator.pop(context!),
     ),
     elevation: 0.25,
     title: Text(
@@ -129,12 +131,26 @@ Text normalText(String? text) {
   );
 }
 
-Text subText(String? text, {Color? color, double? fontSize}) {
+Text subText(String? text,
+    {Color? color, double? fontSize, FontWeight? fontWeight}) {
   return Text(
     text!,
     style: GoogleFonts.poppins(
       fontSize: fontSize ?? 16,
-      fontWeight: FontWeight.w500,
+      fontWeight: fontWeight ?? FontWeight.w500,
+      color: color ?? Colors.black,
+      letterSpacing: .25,
+    ),
+  );
+}
+
+Text subTextRaleway(String? text,
+    {Color? color, double? fontSize, FontWeight? fontWeight}) {
+  return Text(
+    text!,
+    style: GoogleFonts.raleway(
+      fontSize: fontSize ?? 16,
+      fontWeight: fontWeight ?? FontWeight.w500,
       color: color ?? Colors.black,
       letterSpacing: .25,
     ),

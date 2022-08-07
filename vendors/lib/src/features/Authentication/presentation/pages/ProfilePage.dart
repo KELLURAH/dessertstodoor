@@ -215,6 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   false,
                   usernameCon,
                 ),
+                addVertical(10),
                 buildTextField(
                   'Full Name',
                   'Eg: Kofi Kyei',
@@ -222,6 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   false,
                   nameCon,
                 ),
+                addVertical(10),
                 buildTextField(
                   'E-mail',
                   widget.email,
@@ -229,6 +231,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   true,
                   emailCon,
                 ),
+                addVertical(10),
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 5,
@@ -271,105 +274,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        children: [
-                          Radio(
-                            value: 'value',
-                            groupValue: 'Sex',
-                            onChanged: (check) {},
-                          ),
-                          Text(
-                            'Male',
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Radio(
-                            value: 'value',
-                            groupValue: 'Sex',
-                            onChanged: (check) {},
-                          ),
-                          Text(
-                            'Female',
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: buildTextField(
-                          'Blood Group',
-                          'Eg: O+',
-                          false,
-                          false,
-                          usernameCon,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: buildTextField(
-                          'Blood Group',
-                          'Eg: 98/13',
-                          false,
-                          false,
-                          heightController,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: buildTextField(
-                          'Height',
-                          'Eg: 567cm',
-                          false,
-                          false,
-                          weightController,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: buildTextField(
-                          'Weight',
-                          'Eg: 56.7kg',
-                          false,
-                          false,
-                          heightController,
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),

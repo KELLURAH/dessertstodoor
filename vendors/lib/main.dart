@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vendors/Generic/Splash.dart';
 import 'package:vendors/src/features/Authentication/presentation/pages/ProfilePage.dart';
+import 'package:vendors/src/features/Settings/presentation/pages/WithdrawFunds.dart';
+import 'package:vendors/src/features/Settings/presentation/widgets/PaymentMethods.dart';
 
 import 'Generic/Index.dart';
 import 'Generic/Onboarding.dart';
@@ -9,6 +11,7 @@ import 'src/features/Authentication/presentation/pages/OtpVerify.dart';
 import 'src/features/Authentication/presentation/pages/Registration.dart';
 import 'src/features/LandingPage/presentation/pages/Homepage.dart';
 import 'src/features/LandingPage/presentation/pages/Offers.dart';
+import 'src/features/Settings/presentation/pages/Notifications.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
-      // home: const SplashScreen(),
+      themeMode: ThemeMode.system,
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
@@ -40,6 +42,9 @@ class MyApp extends StatelessWidget {
               email: 'georonathan47@mail.com',
               name: 'Test Name',
             ),
+        '/wFunds': (context) => const WFundsPage(),
+        '/pay_meth': (context) => const PayMethods(),
+        '/notifications': (context) => const NoticiationsPage(),
       },
     );
   }

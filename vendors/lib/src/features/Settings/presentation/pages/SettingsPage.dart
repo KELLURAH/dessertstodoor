@@ -127,7 +127,7 @@ class _SettingsPageState extends State<SettingsPage>
                             Text(
                               accountHolder,
                               style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w500,
                                 letterSpacing: .75,
                                 fontSize: 16,
                               ),
@@ -136,7 +136,11 @@ class _SettingsPageState extends State<SettingsPage>
                             Row(
                               children: [
                                 subText('Current Balance: ', fontSize: 14),
-                                subText('GH¢ 4,000.00', fontSize: 14),
+                                subTextRaleway(
+                                  'GH¢ 4,000.00',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ],
                             )
                           ],
@@ -147,21 +151,7 @@ class _SettingsPageState extends State<SettingsPage>
                 ),
               ),
               addVertical(20),
-              Text(
-                'User Account Settings',
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: .5,
-                  color: Colors.black45,
-                ),
-              ),
-              const Divider(thickness: .45, color: Colors.black54),
-              addVertical(10),
-              // UserAccountSettings(size, phone),
-              UserAccountsInfo(size, phone),
 
-              addVertical(20),
               Text(
                 'Payment Info',
                 style: GoogleFonts.poppins(
@@ -190,6 +180,21 @@ class _SettingsPageState extends State<SettingsPage>
               ShopInfo(size, phone),
 
               addVertical(20),
+              Text(
+                'Vendor Account Settings',
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: .5,
+                  color: Colors.black45,
+                ),
+              ),
+              const Divider(thickness: .45, color: Colors.black54),
+              addVertical(10),
+              // UserAccountSettings(size, phone),
+              UserAccountsInfo(size, phone),
+
+              addVertical(20),
               Center(
                 child: Text(
                   'Version: $VERSION',
@@ -211,14 +216,14 @@ class _SettingsPageState extends State<SettingsPage>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 5), // changes position of shadow
-          ),
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.grey.withOpacity(0.15),
+        //     spreadRadius: 5,
+        //     blurRadius: 7,
+        //     offset: const Offset(0, 5), // changes position of shadow
+        //   ),
+        // ],
       ),
       child: Column(
         children: [
@@ -229,42 +234,35 @@ class _SettingsPageState extends State<SettingsPage>
             trailing: subText('GH¢ 4,000', fontSize: 14),
             onTap: null,
           ),
-          // addVertical(10),
+
           ListTile(
             trailing: const Icon(Icons.navigate_next, size: 30),
             leading: Image.asset('assets/images/transaction.png', height: 25),
-            title: subText('See Transactions'),
-            onTap: null,
-            // tileColor: SECOND_COLOR,
-          ),
-          // addVertical(10),
-          // ? FAQs
-          ListTile(
-            trailing: const Icon(Icons.navigate_next_outlined, size: 30),
-            leading: const Icon(
-              Icons.credit_card_outlined,
-              color: PRIMARY_COLOR,
-            ),
-            title: subText('Payment Methods'),
+            title: subText('See Transactions', fontSize: 17),
             onTap: null,
             // tileColor: SECOND_COLOR,
           ),
 
-          // addVertical(10),
-          GestureDetector(
-            onTap: () {
-              _makePhoneCall(phone);
-            },
-            child: ListTile(
-              trailing: const Icon(Icons.navigate_next_outlined, size: 30),
-              leading: const Icon(
-                Icons.monetization_on_outlined,
-                color: Colors.green,
-              ),
-              title: subText('Withdraw Funds'),
-              onTap: null,
-              // tileColor: SECOND_COLOR,
+          // ? FAQs
+          // ListTile(
+          //   trailing: const Icon(Icons.navigate_next_outlined, size: 30),
+          //   leading: const Icon(
+          //     Icons.credit_card_outlined,
+          //     color: PRIMARY_COLOR,
+          //   ),
+          //   title: subText('Payment Methods', fontSize: 17),
+          //   onTap: () => Navigator.pushNamed(context, '/pay_meth'),
+          //   // tileColor: SECOND_COLOR,
+          // ),
+          ListTile(
+            trailing: const Icon(Icons.navigate_next_outlined, size: 30),
+            leading: const Icon(
+              Icons.monetization_on_outlined,
+              color: Colors.green,
             ),
+            title: subText('Withdraw Funds', fontSize: 17),
+            onTap: () => Navigator.pushNamed(context, '/wFunds'),
+            // tileColor: SECOND_COLOR,
           ),
         ],
       ),
@@ -279,14 +277,14 @@ class _SettingsPageState extends State<SettingsPage>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 5), // changes position of shadow
-          ),
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.grey.withOpacity(0.15),
+        //     spreadRadius: 5,
+        //     blurRadius: 7,
+        //     offset: const Offset(0, 5), // changes position of shadow
+        //   ),
+        // ],
       ),
       child: Column(
         children: [
@@ -294,8 +292,7 @@ class _SettingsPageState extends State<SettingsPage>
           ListTile(
             leading: const Icon(Icons.person_outline, color: SECOND_COLOR),
             title: subText('Profile Settings'),
-            // trailing: subText('', fontSize: 14),
-            trailing: const Icon(Icons.navigate_next_rounded),
+            trailing: const Icon(Icons.navigate_next_rounded, size: 30),
             onTap: () => Navigator.pushNamed(context, '/profile'),
           ),
 
@@ -304,23 +301,84 @@ class _SettingsPageState extends State<SettingsPage>
             leading: Image.asset('assets/images/about.png', height: 25),
             title: subText('About App'),
             onTap: null,
-            // tileColor: SECOND_COLOR,
           ),
 
           // ? FAQs
-          ListTile(
-            trailing: const Icon(Icons.navigate_next_outlined, size: 30),
-            leading: const Icon(
-              Icons.credit_card_outlined,
-              color: PRIMARY_COLOR,
-            ),
-            title: subText('Payment Methods'),
-            onTap: null,
-            // tileColor: SECOND_COLOR,
-          ),
+          // ListTile(
+          //   trailing: InkWell(
+          //     splashColor: Colors.transparent,
+          //     highlightColor: Colors.transparent,
+          //     onTap: () {
+          //       setState(
+          //         () {
+          //           if (_animationController!.isCompleted) {
+          //             _animationController!.reverse();
+          //           } else {
+          //             _animationController!.forward();
+          //           }
+          //           isChecked = !isChecked;
+          //         },
+          //       );
+          //     },
+          //     child: Container(
+          //       width: 50,
+          //       height: 25,
+          //       padding: const EdgeInsets.fromLTRB(0, 6, 0, 6),
+          //       decoration: BoxDecoration(
+          //         color: isChecked ? Colors.green : Colors.grey,
+          //         borderRadius: const BorderRadius.all(
+          //           Radius.circular(99),
+          //         ),
+          //         boxShadow: [
+          //           BoxShadow(
+          //             color: isChecked
+          //                 ? Colors.green.withOpacity(0.6)
+          //                 : Colors.grey.withOpacity(0.6),
+          //             blurRadius: 15,
+          //             offset: const Offset(0, 8),
+          //           )
+          //         ],
+          //       ),
+          //       child: Stack(
+          //         children: [
+          //           Align(
+          //             alignment: _animation!.value,
+          //             child: GestureDetector(
+          //               onTap: () {
+          //                 setState(
+          //                   () {
+          //                     if (_animationController!.isCompleted) {
+          //                       _animationController!.reverse();
+          //                     } else {
+          //                       _animationController!.forward();
+          //                     }
+          //                     isChecked = !isChecked;
+          //                   },
+          //                 );
+          //               },
+          //               child: Container(
+          //                 width: 25,
+          //                 height: 25,
+          //                 decoration: const BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   color: Colors.white,
+          //                 ),
+          //               ),
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          //   leading: const Icon(
+          //     Icons.dark_mode_outlined,
+          //     color: Colors.black,
+          //   ),
+          //   title: subText('Toggle Dark Mode'),
+          //   onTap: null,
+          // ),
 
           ListTile(
-            // trailing: const Icon(Icons.navigate_next_outlined, size: 30),
             leading: const Icon(
               Icons.phone_in_talk_outlined,
               color: Colors.green,
@@ -342,14 +400,14 @@ class _SettingsPageState extends State<SettingsPage>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.grey.withOpacity(0.15),
+        //     spreadRadius: 5,
+        //     blurRadius: 7,
+        //     offset: const Offset(0, 3), // changes position of shadow
+        //   ),
+        // ],
       ),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -461,71 +519,6 @@ class _SettingsPageState extends State<SettingsPage>
                     fontWeight: FontWeight.w500,
                     letterSpacing: .5,
                     color: Colors.black,
-                  ),
-                ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () {
-                    setState(
-                      () {
-                        if (_animationController!.isCompleted) {
-                          _animationController!.reverse();
-                        } else {
-                          _animationController!.forward();
-                        }
-                        isChecked = !isChecked;
-                      },
-                    );
-                  },
-                  child: Container(
-                    width: 50,
-                    height: 25,
-                    padding: const EdgeInsets.fromLTRB(0, 6, 0, 6),
-                    decoration: BoxDecoration(
-                      color: isChecked ? Colors.green : Colors.grey,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(99),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: isChecked
-                              ? Colors.green.withOpacity(0.6)
-                              : Colors.grey.withOpacity(0.6),
-                          blurRadius: 15,
-                          offset: Offset(0, 8),
-                        )
-                      ],
-                    ),
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: _animation!.value,
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(
-                                () {
-                                  if (_animationController!.isCompleted) {
-                                    _animationController!.reverse();
-                                  } else {
-                                    _animationController!.forward();
-                                  }
-                                  isChecked = !isChecked;
-                                },
-                              );
-                            },
-                            child: Container(
-                              width: 25,
-                              height: 25,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                 ),
               ],

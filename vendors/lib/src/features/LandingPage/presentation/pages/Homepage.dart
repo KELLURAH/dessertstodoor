@@ -129,11 +129,15 @@ class HomePageState extends State<HomePage> {
                   onChanged: () => _runFilter(searchController.text),
                 ),
                 addVertical(20),
-                subText('Categories'),
+                subText(
+                  'Add Products',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                ),
                 const Divider(thickness: .45, color: Colors.black54),
                 addVertical(10),
                 SizedBox(
-                  height: size.height * 0.2,
+                  height: size.height * 0.15,
                   child: ListView.separated(
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -154,7 +158,11 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
                 addVertical(20),
-                subText('Vendors'),
+                subText(
+                  'Vendors',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                ),
                 const Divider(thickness: .45, color: Colors.black54),
                 Container(
                   height: size.height * 0.55,

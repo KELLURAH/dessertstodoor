@@ -1,11 +1,12 @@
+import 'package:data_table_2/data_table_2.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vendors/core/components/DashboardCard.dart';
 
 import '../../../../../core/components/widgetFunctions.dart';
 import '../../../../../core/utils/Colors.dart';
 import '../../../../../Generic/Sidebar.dart';
-import '../../../../../core/components/cards.dart';
 
 class LandingPage extends StatefulWidget {
   final String name;
@@ -32,29 +33,45 @@ class _LandingPageState extends State<LandingPage> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: Sidebar(name: widget.name, email: widget.email, context: context),
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.add),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: const Icon(
-                Icons.menu,
-                size: 35,
-                color: Colors.black,
-              ),
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            );
-          }
-        ),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(
+              Icons.menu,
+              size: 35,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          );
+        }),
         elevation: 0.25,
         title: Text(
-          'Homepage',
+          'Dashboard',
           style: GoogleFonts.poppins(
             color: Colors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: InkWell(
+              onTap: () {
+                // setState(() {
+                //   showAvg = !showAvg;
+                // });
+                Navigator.pushNamed(context, '/notifications');
+              },
+              child: Image.asset('assets/images/bell.png', height: 30),
+            ),
+          ),
+        ],
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -67,6 +84,38 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: size.height * 0.15,
+                  width: size.width,
+                  child: const DashboardCards(
+                    icon: Icon(Icons.today_outlined, size: 35),
+                    title: 'Today\'s Orders',
+                    subtitle: '7',
+                    fontSize: 15,
+                  ),
+                ),
+                addVertical(size.height * 0.0005),
+                SizedBox(
+                  height: size.height * 0.15,
+                  width: size.width,
+                  child: const DashboardCards(
+                    icon: Icon(Icons.abc, size: 35),
+                    title: 'Offers Procured',
+                    subtitle: '45',
+                    fontSize: 15,
+                  ),
+                ),
+                addVertical(size.height * 0.0005),
+                SizedBox(
+                  height: size.height * 0.15,
+                  width: size.width,
+                  child: const DashboardCards(
+                    icon: Icon(Icons.abc, size: 35),
+                    title: 'Total Orders',
+                    subtitle: '15',
+                  ),
+                ),
+                addVertical(size.height * 0.035),
                 subText('Summary', fontSize: 16),
                 const Divider(),
                 addVertical(10),
@@ -93,182 +142,202 @@ class _LandingPageState extends State<LandingPage> {
                       borderRadius: BorderRadius.all(Radius.circular(25)),
                       color: Colors.white,
                     ),
-                    child: LineChart(
-                      LineChartData(
-                        gridData: FlGridData(
-                          show: true,
-                          drawVerticalLine: true,
-                          horizontalInterval: 1,
-                          verticalInterval: 1,
-                          getDrawingHorizontalLine: (value) {
-                            return FlLine(
-                              color: const Color(0xff37434d),
-                              strokeWidth: 1,
-                            );
-                          },
-                          getDrawingVerticalLine: (value) {
-                            return FlLine(
-                              color: const Color(0xff37434d),
-                              strokeWidth: 1,
-                            );
-                          },
-                        ),
-                        titlesData: FlTitlesData(
-                          show: true,
-                          rightTitles: AxisTitles(
-                            sideTitles: SideTitles(showTitles: false),
-                          ),
-                          topTitles: AxisTitles(
-                            sideTitles: SideTitles(showTitles: false),
-                          ),
-                          bottomTitles: AxisTitles(
-                            sideTitles: SideTitles(
-                              showTitles: true,
-                              reservedSize: 30,
-                              interval: 1,
-                              // getTitlesWidget: bottomTitleWidgets,
-                            ),
-                          ),
-                          leftTitles: AxisTitles(
-                            sideTitles: SideTitles(
-                              showTitles: true,
-                              interval: 1,
-                              // getTitlesWidget: leftTitleWidgets,
-                              reservedSize: 42,
-                            ),
-                          ),
-                        ),
-                        borderData: FlBorderData(
-                            show: true,
-                            border: Border.all(
-                                color: const Color(0xff37434d), width: 1)),
-                        minX: 0,
-                        maxX: 7,
-                        minY: 0,
-                        maxY: 4,
-                        lineBarsData: [
-                          LineChartBarData(
-                            spots: const [
-                              FlSpot(0, 3),
-                              FlSpot(2.6, 2),
-                              FlSpot(4.9, 4),
-                              FlSpot(6.8, 3),
-                              FlSpot(7, 4.2),
-                            ],
-                            isCurved: true,
-                            gradient: LinearGradient(
-                              colors: gradientColors,
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            barWidth: 5,
-                            isStrokeCapRound: true,
-                            dotData: FlDotData(
-                              show: false,
-                            ),
-                            belowBarData: BarAreaData(
-                              show: true,
-                              gradient: LinearGradient(
-                                colors: gradientColors
-                                    .map((color) => color.withOpacity(0.25))
-                                    .toList(),
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
+                    // child: LineChart(
+                    //   LineChartData(
+                    //     gridData: FlGridData(
+                    //       show: true,
+                    //       drawVerticalLine: true,
+                    //       horizontalInterval: 1,
+                    //       verticalInterval: 1,
+                    //       getDrawingHorizontalLine: (value) {
+                    //         return FlLine(
+                    //           color: const Color(0xff37434d),
+                    //           strokeWidth: 1,
+                    //         );
+                    //       },
+                    //       getDrawingVerticalLine: (value) {
+                    //         return FlLine(
+                    //           color: const Color(0xff37434d),
+                    //           strokeWidth: 1,
+                    //         );
+                    //       },
+                    //     ),
+                    //     titlesData: FlTitlesData(
+                    //       show: true,
+                    //       rightTitles: AxisTitles(
+                    //         sideTitles: SideTitles(showTitles: false),
+                    //       ),
+                    //       topTitles: AxisTitles(
+                    //         sideTitles: SideTitles(showTitles: false),
+                    //       ),
+                    //       bottomTitles: AxisTitles(
+                    //         sideTitles: SideTitles(
+                    //           showTitles: true,
+                    //           reservedSize: 30,
+                    //           interval: 1,
+                    //           // getTitlesWidget: bottomTitleWidgets,
+                    //         ),
+                    //       ),
+                    //       leftTitles: AxisTitles(
+                    //         sideTitles: SideTitles(
+                    //           showTitles: true,
+                    //           interval: 1,
+                    //           // getTitlesWidget: leftTitleWidgets,
+                    //           reservedSize: 42,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     borderData: FlBorderData(
+                    //         show: true,
+                    //         border: Border.all(
+                    //             color: const Color(0xff37434d), width: 1)),
+                    //     minX: 0,
+                    //     maxX: 7,
+                    //     minY: 0,
+                    //     maxY: 4,
+                    //     lineBarsData: [
+                    //       LineChartBarData(
+                    //         spots: const [
+                    //           FlSpot(0, 3),
+                    //           FlSpot(2.6, 2),
+                    //           FlSpot(4.9, 4),
+                    //           FlSpot(6.8, 3),
+                    //           FlSpot(7, 4.2),
+                    //         ],
+                    //         isCurved: true,
+                    //         gradient: LinearGradient(
+                    //           colors: gradientColors,
+                    //           begin: Alignment.centerLeft,
+                    //           end: Alignment.centerRight,
+                    //         ),
+                    //         barWidth: 5,
+                    //         isStrokeCapRound: true,
+                    //         dotData: FlDotData(
+                    //           show: false,
+                    //         ),
+                    //         belowBarData: BarAreaData(
+                    //           show: true,
+                    //           gradient: LinearGradient(
+                    //             colors: gradientColors
+                    //                 .map((color) => color.withOpacity(0.25))
+                    //                 .toList(),
+                    //             begin: Alignment.centerLeft,
+                    //             end: Alignment.centerRight,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+
+                    //   swapAnimationDuration:
+                    //       const Duration(milliseconds: 150), // Optional
+                    //   swapAnimationCurve: Curves.linear, // Optional
+                    // ),
+                    child: BarChart(
+                      BarChartData(
+                        backgroundColor: SECOND_COLOR.withOpacity(0.25),
+                        borderData: FlBorderData(),
+                        barGroups: [
+                          BarChartGroupData(
+                            x: 1,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 3,
+                                color: SECOND_COLOR,
+                                width: 25,
                               ),
-                            ),
+                            ],
+                          ),
+                          BarChartGroupData(
+                            x: 2,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 5,
+                                color: SECOND_COLOR,
+                                width: 25,
+                              ),
+                            ],
+                          ),
+                          BarChartGroupData(
+                            x: 3,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 8,
+                                color: SECOND_COLOR,
+                                width: 25,
+                              ),
+                            ],
+                          ),
+                          BarChartGroupData(
+                            x: 4,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 4,
+                                color: SECOND_COLOR,
+                                width: 25,
+                              ),
+                            ],
+                          ),
+                          BarChartGroupData(
+                            x: 5,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 4,
+                                color: SECOND_COLOR,
+                                width: 25,
+                              ),
+                            ],
                           ),
                         ],
                       ),
-
                       swapAnimationDuration:
                           const Duration(milliseconds: 150), // Optional
                       swapAnimationCurve: Curves.linear, // Optional
                     ),
                   ),
                 ),
-                addVertical(15),
-                subText('Categories', fontSize: 16),
-                const Divider(thickness: .45),
-                addVertical(15),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: size.height * 0.2,
-                      child: Container(),
-                      // Row(
-                      //   crossAxisAlignment: CrossAxisAlignment.start,
-                      //   children: [
-                      //     Expanded(
-                      //       child: GestureDetector(
-                      //         onTap: () {
-                      //           // setState(() {
-                      //           //   showAvg = !showAvg;
-                      //           // });
-                      //           Navigator.pushNamed(context, '/vendors');
-                      //         },
-                      //         child: const DashCards(
-                      //           title: 'All Vendors',
-                      //           subtitle: '',
-                      //           image: 'assets/images/vendors.png',
-                      //           backgroundColor: PRIMARY_COLOR,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     addHorizontal(10),
-                      //     Expanded(
-                      //       child: GestureDetector(
-                      //         onTap: () =>
-                      //             Navigator.pushNamed(context, '/offers'),
-                      //         child: const DashCards(
-                      //           title: 'All Offers',
-                      //           subtitle: '',
-                      //           image: 'assets/images/discount.png',
-                      //           backgroundColor: SECOND_COLOR,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                addVertical(size.height * 0.035),
+                subText('Most Recent Orders', fontSize: 16),
+                const Divider(),
+                addVertical(10),
+                Container(
+                  height: 250,
+                  child: DataTable2(
+                    columnSpacing: 12,
+                    horizontalMargin: 12,
+                    minWidth: 600,
+                    columns: const [
+                      DataColumn2(
+                        label: Text('Column A'),
+                        size: ColumnSize.L,
+                      ),
+                      DataColumn(
+                        label: Text('Column B'),
+                      ),
+                      DataColumn(
+                        label: Text('Column C'),
+                      ),
+                      DataColumn(
+                        label: Text('Column D'),
+                      ),
+                      DataColumn(
+                        label: Text('Column NUMBERS'),
+                        numeric: true,
+                      ),
+                    ],
+                    rows: List<DataRow>.generate(
+                      100,
+                      (index) => DataRow(
+                        cells: [
+                          DataCell(Text('A' * (10 - index % 10))),
+                          DataCell(Text('B' * (10 - (index + 5) % 10))),
+                          DataCell(Text('C' * (15 - (index + 5) % 10))),
+                          DataCell(Text('D' * (15 - (index + 10) % 10))),
+                          DataCell(Text(((index + 0.1) * 25.4).toString()))
+                        ],
+                      ),
                     ),
-                  ],
-                ),
-                addVertical(size.height * 0.015),
-                SizedBox(
-                  height: size.height * 0.2,
-                  child: Container(),
-                  //  Row(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     Expanded(
-                  //       child: GestureDetector(
-                  //         onTap: () {
-                  //           // setState(() {
-                  //           //   showAvg = !showAvg;
-                  //           // });
-                  //           Navigator.pushNamed(context, '/vendors');
-                  //         },
-                  //         child: const DashCards(
-                  //           title: 'Top Vendors',
-                  //           subtitle: '',
-                  //           image: 'assets/images/vendors.png',
-                  //           backgroundColor: OFFERS_COLOR,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     addHorizontal(10),
-                  //     Expanded(
-                  //       child: GestureDetector(
-                  //         onTap: () => Navigator.pushNamed(context, '/offers'),
-                  //         child: const DashCards(
-                  //           title: 'Menu',
-                  //           subtitle: '',
-                  //           image: 'assets/images/menu.png',
-                  //           backgroundColor: Colors.green,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+                  ),
                 ),
               ],
             ),

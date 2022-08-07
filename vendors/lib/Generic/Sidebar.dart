@@ -38,38 +38,6 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            //   child: Card(
-            //     elevation: .5,
-            //     child: ListTile(
-            //       leading: Icon(
-            //         Icons.person_outline_outlined,
-            //         color: SECOND_COLOR.withOpacity(0.35),
-            //       ),
-            //       title: Text(
-            //         '',
-            //         style: GoogleFonts.poppins(
-            //           fontSize: 14,
-            //           color: Colors.black,
-            //           fontWeight: FontWeight.w400,
-            //           letterSpacing: .45,
-            //         ),
-            //       ),
-            //       onTap: () {
-            //         // Update the state of the app
-            //         Navigator.pop(context!);
-            //         // Navigator.push(
-            //         //   context,
-            //         //   MaterialPageRoute(
-            //         //     builder: (context) =>
-            //         //         ProfilePage(name: name!, email: email),
-            //         //   ),
-            //         // );
-            //       },
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Card(
@@ -121,34 +89,28 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            //   child: Card(
-            //     // color: LABEL_COLOR,
-            //     elevation: .5,
-            //     child: ListTile(
-            //       leading: const Icon(Icons.settings_outlined),
-            //       title: Text(
-            //         'Settings',
-            //         style: GoogleFonts.poppins(
-            //           fontSize: 14,
-            //           color: Colors.black,
-            //           fontWeight: FontWeight.w400,
-            //           letterSpacing: .45,
-            //         ),
-            //       ),
-            //       onTap: () {
-            //         Navigator.pop(context!);
-            //         Navigator.push(
-            //           context,
-            //           MaterialPageRoute(
-            //             builder: (context) => const SettingsPage(),
-            //           ),
-            //         );
-            //       },
-            //     ),
-            //   ),
-            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Card(
+                elevation: .5,
+                child: ListTile(
+                  leading:
+                      Image.asset('assets/images/dark_mode.png', height: 25),
+                  title: Text(
+                    'Toggle Dark Mode',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: .45,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context!);
+                  },
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Card(
