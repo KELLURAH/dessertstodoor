@@ -9,9 +9,9 @@ import 'Generic/Onboarding.dart';
 import 'src/features/Authentication/presentation/pages/Login.dart';
 import 'src/features/Authentication/presentation/pages/OtpVerify.dart';
 import 'src/features/Authentication/presentation/pages/Registration.dart';
-import 'src/features/LandingPage/presentation/pages/Homepage.dart';
 import 'src/features/LandingPage/presentation/pages/Offers.dart';
 import 'src/features/Settings/presentation/pages/Notifications.dart';
+import 'src/features/Settings/presentation/pages/SettingsPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               email: 'georonathan47@mail.com',
               name: 'Test Name',
             ),
-        '/home': (context) => const HomePage(),
+        // '/home': (context) => const HomePage(),
         '/offers': (context) => const OffersPage(),
         '/profile': (context) => const ProfilePage(
               email: 'georonathan47@mail.com',
@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
         '/wFunds': (context) => const WFundsPage(),
         '/pay_meth': (context) => const PayMethods(),
         '/notifications': (context) => const NoticiationsPage(),
+        '/settings': (context) => const SettingsPage(),
       },
     );
   }

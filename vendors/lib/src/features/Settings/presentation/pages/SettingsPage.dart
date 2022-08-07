@@ -45,17 +45,11 @@ class _SettingsPageState extends State<SettingsPage>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
+      appBar: appBar(
         backgroundColor: Colors.white,
-        elevation: 0.25,
-        title: Text(
-          'Settings',
-          style: GoogleFonts.poppins(
-            color: Colors.black,
-            fontWeight: FontWeight.w500,
-            fontSize: 18,
-          ),
-        ),
+        // elevation: 0.25,
+        title: 'Settings',
+        context: context,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

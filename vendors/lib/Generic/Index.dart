@@ -79,19 +79,38 @@ class _IndexState extends State<Index> {
       // return const HomePage();
       return null;
     } else if (index == 2) {
-      return const HomePage();
+      // return showModal();
+      //   return const HomePage();
     } else if (index == 3) {
       //   return const PharmacistsPage();
       return const OffersPage();
-    } else if (index == 4) {
-      return const SettingsPage();
-      // } else if (index == 5) {
+      // } else if (index == 4) {
+      //   return const SettingsPage();
+      //   // } else if (index == 5) {
       //   //   return const AccountScreen();
     } else {
       return null;
       //   return const PrescriptionsPage();
       // }
     }
+  }
+
+  showModal() {
+    final size = MediaQuery.of(context).size;
+    showModalBottomSheet(
+      context: context,
+      elevation: 1.25,
+      builder: (context) {
+        return Container(
+          color: Colors.black,
+          height: size.height * 0.5,
+          width: size.width * 0.5,
+          child: Dialog(
+            child: Container(),
+          ),
+        );
+      },
+    );
   }
 
   SalomonBottomBar buildBottomNavigationBar() {
@@ -103,7 +122,7 @@ class _IndexState extends State<Index> {
           icon: const Icon(Icons.dashboard),
           title: Text(
             'Dashboard'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12),
+            style: GoogleFonts.raleway(fontSize: 10),
           ),
           selectedColor: PRIMARY_COLOR,
         ),
@@ -113,19 +132,19 @@ class _IndexState extends State<Index> {
           icon: const Icon(Icons.motorcycle_outlined),
           title: Text(
             'Riders'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12, color: Colors.blue),
+            style: GoogleFonts.raleway(fontSize: 10, color: Colors.blue),
           ),
           // selectedColor: Colors.blueGrey,
         ),
 
         /// Home
         SalomonBottomBarItem(
-          icon: const Icon(Icons.home),
+          icon: const Icon(Icons.add),
           title: Text(
-            'Home'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12),
+            'Add'.toUpperCase(),
+            style: GoogleFonts.raleway(fontSize: 10),
           ),
-          selectedColor: SECOND_COLOR,
+          selectedColor: Colors.teal,
         ),
 
         /// Likes
@@ -133,17 +152,17 @@ class _IndexState extends State<Index> {
           icon: const Icon(Icons.discount),
           title: Text(
             'Offers'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12),
+            style: GoogleFonts.raleway(fontSize: 10),
           ),
           selectedColor: OFFERS_COLOR,
         ),
 
         /// Settings
         SalomonBottomBarItem(
-          icon: const Icon(Icons.settings),
+          icon: const Icon(Icons.payments_outlined),
           title: Text(
-            'Settings'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12),
+            'Payouts'.toUpperCase(),
+            style: GoogleFonts.raleway(fontSize: 10),
           ),
           selectedColor: Colors.black,
         ),

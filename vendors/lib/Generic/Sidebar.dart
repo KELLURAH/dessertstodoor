@@ -94,10 +94,12 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
               child: Card(
                 elevation: .5,
                 child: ListTile(
-                  leading:
-                      Image.asset('assets/images/dark_mode.png', height: 25),
+                  leading: const Icon(
+                    Icons.settings_outlined,
+                    color: Colors.black,
+                  ),
                   title: Text(
-                    'Toggle Dark Mode',
+                    'Settings',
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.black,
@@ -107,6 +109,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                   ),
                   onTap: () {
                     Navigator.pop(context!);
+                    Navigator.pushNamed(context, '/settings');
                   },
                 ),
               ),

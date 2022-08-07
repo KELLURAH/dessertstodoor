@@ -33,10 +33,10 @@ class _LandingPageState extends State<LandingPage> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: Sidebar(name: widget.name, email: widget.email, context: context),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.add),
-      ),
+      // floatingActionButton: const FloatingActionButton(
+      //   onPressed: null,
+      //   child: Icon(Icons.add),
+      // ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: Builder(builder: (context) {
@@ -142,97 +142,6 @@ class _LandingPageState extends State<LandingPage> {
                       borderRadius: BorderRadius.all(Radius.circular(25)),
                       color: Colors.white,
                     ),
-                    // child: LineChart(
-                    //   LineChartData(
-                    //     gridData: FlGridData(
-                    //       show: true,
-                    //       drawVerticalLine: true,
-                    //       horizontalInterval: 1,
-                    //       verticalInterval: 1,
-                    //       getDrawingHorizontalLine: (value) {
-                    //         return FlLine(
-                    //           color: const Color(0xff37434d),
-                    //           strokeWidth: 1,
-                    //         );
-                    //       },
-                    //       getDrawingVerticalLine: (value) {
-                    //         return FlLine(
-                    //           color: const Color(0xff37434d),
-                    //           strokeWidth: 1,
-                    //         );
-                    //       },
-                    //     ),
-                    //     titlesData: FlTitlesData(
-                    //       show: true,
-                    //       rightTitles: AxisTitles(
-                    //         sideTitles: SideTitles(showTitles: false),
-                    //       ),
-                    //       topTitles: AxisTitles(
-                    //         sideTitles: SideTitles(showTitles: false),
-                    //       ),
-                    //       bottomTitles: AxisTitles(
-                    //         sideTitles: SideTitles(
-                    //           showTitles: true,
-                    //           reservedSize: 30,
-                    //           interval: 1,
-                    //           // getTitlesWidget: bottomTitleWidgets,
-                    //         ),
-                    //       ),
-                    //       leftTitles: AxisTitles(
-                    //         sideTitles: SideTitles(
-                    //           showTitles: true,
-                    //           interval: 1,
-                    //           // getTitlesWidget: leftTitleWidgets,
-                    //           reservedSize: 42,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     borderData: FlBorderData(
-                    //         show: true,
-                    //         border: Border.all(
-                    //             color: const Color(0xff37434d), width: 1)),
-                    //     minX: 0,
-                    //     maxX: 7,
-                    //     minY: 0,
-                    //     maxY: 4,
-                    //     lineBarsData: [
-                    //       LineChartBarData(
-                    //         spots: const [
-                    //           FlSpot(0, 3),
-                    //           FlSpot(2.6, 2),
-                    //           FlSpot(4.9, 4),
-                    //           FlSpot(6.8, 3),
-                    //           FlSpot(7, 4.2),
-                    //         ],
-                    //         isCurved: true,
-                    //         gradient: LinearGradient(
-                    //           colors: gradientColors,
-                    //           begin: Alignment.centerLeft,
-                    //           end: Alignment.centerRight,
-                    //         ),
-                    //         barWidth: 5,
-                    //         isStrokeCapRound: true,
-                    //         dotData: FlDotData(
-                    //           show: false,
-                    //         ),
-                    //         belowBarData: BarAreaData(
-                    //           show: true,
-                    //           gradient: LinearGradient(
-                    //             colors: gradientColors
-                    //                 .map((color) => color.withOpacity(0.25))
-                    //                 .toList(),
-                    //             begin: Alignment.centerLeft,
-                    //             end: Alignment.centerRight,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-
-                    //   swapAnimationDuration:
-                    //       const Duration(milliseconds: 150), // Optional
-                    //   swapAnimationCurve: Curves.linear, // Optional
-                    // ),
                     child: BarChart(
                       BarChartData(
                         backgroundColor: SECOND_COLOR.withOpacity(0.25),
@@ -301,44 +210,80 @@ class _LandingPageState extends State<LandingPage> {
                 const Divider(),
                 addVertical(10),
                 Container(
-                  height: 250,
-                  child: DataTable2(
-                    columnSpacing: 12,
-                    horizontalMargin: 12,
-                    minWidth: 600,
-                    columns: const [
-                      DataColumn2(
-                        label: Text('Column A'),
-                        size: ColumnSize.L,
-                      ),
-                      DataColumn(
-                        label: Text('Column B'),
-                      ),
-                      DataColumn(
-                        label: Text('Column C'),
-                      ),
-                      DataColumn(
-                        label: Text('Column D'),
-                      ),
-                      DataColumn(
-                        label: Text('Column NUMBERS'),
-                        numeric: true,
+                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
+                  height: size.height * 0.35,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(15)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.15),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
-                    rows: List<DataRow>.generate(
-                      100,
-                      (index) => DataRow(
-                        cells: [
-                          DataCell(Text('A' * (10 - index % 10))),
-                          DataCell(Text('B' * (10 - (index + 5) % 10))),
-                          DataCell(Text('C' * (15 - (index + 5) % 10))),
-                          DataCell(Text('D' * (15 - (index + 10) % 10))),
-                          DataCell(Text(((index + 0.1) * 25.4).toString()))
-                        ],
+                  ),
+                  child: Container(
+                    height: 250,
+                    width: size.width,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        bottomLeft: Radius.circular(25),
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: DataTable2(
+                      columnSpacing: 10,
+                      horizontalMargin: 12,
+                      minWidth: 600,
+                      columns: const [
+                        DataColumn2(
+                          label: Text('Order Number'),
+                          size: ColumnSize.M,
+                        ),
+                        DataColumn2(
+                          label: Text('Customer Name'),
+                          size: ColumnSize.L,
+                        ),
+                        DataColumn2(
+                          label: Text('Order Date'),
+                          size: ColumnSize.M,
+                        ),
+                        DataColumn2(
+                          label: Text('Due Date'),
+                          size: ColumnSize.M,
+                        ),
+                        DataColumn2(
+                          label: Text('No. of Items'),
+                          size: ColumnSize.M,
+                          numeric: true,
+                        ),
+                        // DataColumn(
+                        //   label: Text('Column NUMBERS'),
+                        //   numeric: true,
+                        // ),
+                      ],
+                      rows: List<DataRow>.generate(
+                        10,
+                        (index) => DataRow(
+                          cells: [
+                            DataCell(Text('A' * (10 - index % 10))),
+                            DataCell(Text('B' * (10 - (index + 5) % 10))),
+                            const DataCell(Text('${DateTime.april}')),
+                            DataCell(Text(
+                                '${DateTime.now().subtract(Duration(days: index))}')),
+                            DataCell(Text(((index + 0.1) * 25.4).toString()))
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
+                addVertical(size.height * 0.0325),
+                subText('')
               ],
             ),
           ),
