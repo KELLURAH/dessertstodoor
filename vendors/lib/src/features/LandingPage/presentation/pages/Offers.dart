@@ -82,9 +82,11 @@ class OffersPageState extends State<OffersPage> {
                       color: Colors.amberAccent,
                     ),
                     addHorizontal(size.width * 0.025),
-                    subText(
-                      'Only two offers can be created per vendor...',
-                      fontSize: 14,
+                    Expanded(
+                      child: subText(
+                        'Only two offers can be created per vendor...',
+                        fontSize: 14,
+                      ),
                     ),
                   ],
                 ),
@@ -97,183 +99,221 @@ class OffersPageState extends State<OffersPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            subText('Add Package as Offer', fontSize: 15),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: DropdownSearch<String>(
-                                    popupProps: PopupProps.menu(
-                                      showSelectedItems: true,
-                                      disabledItemFn: (String s) {
-                                        return s.startsWith('Co') ||
-                                            s.startsWith('D') ||
-                                            s.startsWith('P');
-                                      },
-                                    ),
-                                    items: const [
-                                      'Anniversary',
-                                      'Cookies (Coming Soon...)',
-                                      'Birthday',
-                                      'Desserts (Coming Soon...)',
-                                      'Family',
-                                      'Picnics (Coming Soon...)',
-                                    ],
-                                    // items: offers[index]['name'],
-
-                                    onChanged: print,
-                                    selectedItem: 'Add Package',
-                                  ),
-                                ),
-                                addHorizontal(10),
-                                Expanded(
-                                  child: DropdownSearch<String>(
-                                      popupProps: const PopupProps.menu(
-                                        showSelectedItems: false,
-                                      ),
-                                      items: [
-                                        'GH¢ ${double.parse('1000.00').toStringAsFixed(2)}',
-                                        'GH¢ ${double.parse('1200.00').toStringAsFixed(2)}',
-                                        'GH¢ ${double.parse('1250.00').toStringAsFixed(2)}',
-                                        'GH¢ ${double.parse('1500.00').toStringAsFixed(2)}',
-                                        'GH¢ ${double.parse('2000.00').toStringAsFixed(2)}',
-                                      ],
-                                      // items: [
-                                      //   'GH¢ ${offers[index]['discount']}',
-                                      // ],
-                                      onChanged: print,
-                                      selectedItem: 'Offer Price'),
-                                ),
-                              ],
-                            ),
-                            addVertical(10),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 70),
-                              child: TextFormField(
-                                readOnly: true,
-                                decoration: InputDecoration(
-                                  labelText: 'Current Price',
-                                  labelStyle: GoogleFonts.poppins(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            addVertical(size.height * 0.015),
-                            Center(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: PRIMARY_COLOR.withOpacity(0.15),
-                                ),
-                                child: Image.asset(
-                                  // offers[index]['image'],
-                                  'assets/images/cake.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 5,
+                              spreadRadius: 1,
                             ),
                           ],
+                        ),
+                        child: Card(
+                          child: Container(
+                            padding: const EdgeInsets.all(5),
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: Builder(builder: (context) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  subText('Add Package as Offer', fontSize: 15),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: DropdownSearch<String>(
+                                          popupProps: PopupProps.menu(
+                                            showSelectedItems: true,
+                                            disabledItemFn: (String s) {
+                                              return s.startsWith('Co') ||
+                                                  s.startsWith('D') ||
+                                                  s.startsWith('P');
+                                            },
+                                          ),
+                                          items: const [
+                                            'Anniversary',
+                                            'Cookies (Coming Soon...)',
+                                            'Birthday',
+                                            'Desserts (Coming Soon...)',
+                                            'Family',
+                                            'Picnics (Coming Soon...)',
+                                          ],
+                                          // items: offers[index]['name'],
+
+                                          onChanged: print,
+                                          selectedItem: 'Add Package',
+                                        ),
+                                      ),
+                                      addHorizontal(10),
+                                      Expanded(
+                                        child: DropdownSearch<String>(
+                                          popupProps: const PopupProps.menu(
+                                            showSelectedItems: false,
+                                          ),
+                                          items: [
+                                            'GH¢ ${double.parse('1000.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('1200.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('1250.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('1500.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('2000.00').toStringAsFixed(2)}',
+                                          ],
+                                          // items: [
+                                          //   'GH¢ ${offers[index]['discount']}',
+                                          // ],
+                                          onChanged: print,
+                                          selectedItem: 'Offer Price',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  addVertical(10),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 70),
+                                    child: TextFormField(
+                                      readOnly: true,
+                                      decoration: InputDecoration(
+                                        labelText: 'Current Price',
+                                        labelStyle: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15,
+                                        ),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  addVertical(size.height * 0.015),
+                                  Center(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: PRIMARY_COLOR.withOpacity(0.15),
+                                      ),
+                                      child: Image.asset(
+                                        // offers[index]['image'],
+                                        'assets/images/cake.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }),
+                          ),
                         ),
                       ),
                       addVertical(15),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            subText('Add Product as Offer', fontSize: 15),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: DropdownSearch<String>(
-                                    popupProps: PopupProps.menu(
-                                      showSelectedItems: true,
-                                      disabledItemFn: (String s) {
-                                        return s.startsWith('Co') ||
-                                            s.startsWith('D');
-                                      },
-                                    ),
-                                    items: const [
-                                      'Anniversary',
-                                      'Cookies (Coming Soon...)',
-                                      'Birthday Cakes',
-                                      'Desserts (Coming Soon...)',
-                                      'Family',
-                                      'Picnics (New)',
-                                    ],
-                                    onChanged: print,
-                                    selectedItem: 'Add Product',
-                                  ),
-                                ),
-                                addHorizontal(10),
-                                Expanded(
-                                  child: DropdownSearch<String>(
-                                    popupProps: const PopupProps.menu(
-                                      showSelectedItems: false,
-                                    ),
-                                    items: [
-                                      'GH¢ ${double.parse('350.00').toStringAsFixed(2)}',
-                                      'GH¢ ${double.parse('400.00').toStringAsFixed(2)}',
-                                      'GH¢ ${double.parse('450.00').toStringAsFixed(2)}',
-                                      'GH¢ ${double.parse('500.00').toStringAsFixed(2)}',
-                                      'GH¢ ${double.parse('550.00').toStringAsFixed(2)}',
-                                    ],
-                                    onChanged: print,
-                                    selectedItem: 'Offer Price',
-                                  ),
-                                ),
-                              ],
-                            ),
-                            addVertical(10),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 70),
-                              child: TextFormField(
-                                readOnly: true,
-                                decoration: InputDecoration(
-                                  labelText: 'Current Price',
-                                  labelStyle: GoogleFonts.poppins(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            addVertical(size.height * 0.015),
-                            Center(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: PRIMARY_COLOR.withOpacity(0.15),
-                                ),
-                                child: Image.asset(
-                                  // offers[index]['image'],
-                                  'assets/images/cake.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 5,
+                              spreadRadius: 1,
                             ),
                           ],
                         ),
+                        child: Card(
+                          child: Container(
+                            padding: const EdgeInsets.all(5),
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  subText('Add Product as Offer', fontSize: 15),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: DropdownSearch<String>(
+                                          popupProps: PopupProps.menu(
+                                            showSelectedItems: true,
+                                            disabledItemFn: (String s) {
+                                              return s.startsWith('Co') ||
+                                                  s.startsWith('D');
+                                            },
+                                          ),
+                                          items: const [
+                                            'Anniversary',
+                                            'Cookies (Coming Soon...)',
+                                            'Birthday Cakes',
+                                            'Desserts (Coming Soon...)',
+                                            'Family',
+                                            'Picnics (New)',
+                                          ],
+                                          onChanged: print,
+                                          selectedItem: 'Add Product',
+                                        ),
+                                      ),
+                                      addHorizontal(10),
+                                      Expanded(
+                                        child: DropdownSearch<String>(
+                                          popupProps: const PopupProps.menu(
+                                            showSelectedItems: false,
+                                          ),
+                                          items: [
+                                            'GH¢ ${double.parse('350.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('400.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('450.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('500.00').toStringAsFixed(2)}',
+                                            'GH¢ ${double.parse('550.00').toStringAsFixed(2)}',
+                                          ],
+                                          onChanged: print,
+                                          selectedItem: 'Offer Price',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  addVertical(10),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 70),
+                                    child: TextFormField(
+                                      readOnly: true,
+                                      decoration: InputDecoration(
+                                        labelText: 'Current Price',
+                                        labelStyle: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15,
+                                        ),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  addVertical(size.height * 0.015),
+                                  Center(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: PRIMARY_COLOR.withOpacity(0.15),
+                                      ),
+                                      child: Image.asset(
+                                        // offers[index]['image'],
+                                        'assets/images/cake.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       addVertical(size.height * 0.035),
+                      // PaymentInfoSettings(size, '0201154679')
                     ],
                   );
                 }),

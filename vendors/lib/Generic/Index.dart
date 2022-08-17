@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:vendors/core/utils/Colors.dart';
-import 'package:vendors/src/features/LandingPage/presentation/pages/Homepage.dart';
+import 'package:vendors/src/features/LandingPage/presentation/pages/Cashout.dart';
+
 import '../../core/components/ProgressDialog.dart';
 import '../../core/utils/UtilityService.dart';
-import '../core/components/widgetFunctions.dart';
+
 import '../src/features/LandingPage/presentation/pages/LandingPage.dart';
 import '../src/features/LandingPage/presentation/pages/Offers.dart';
-import '../src/features/Settings/presentation/pages/SettingsPage.dart';
+import '../src/features/LandingPage/presentation/pages/RidersPage.dart';
 
 class Index extends StatefulWidget {
   final String name;
@@ -72,26 +73,16 @@ class _IndexState extends State<Index> {
   }
 
   Widget? navigator(int index) {
-    // Provider.of<AppData>(context, listen: false).updateUserData(customer);
+
     if (index == 0) {
       return LandingPage(email: widget.email, name: widget.name);
     } else if (index == 1) {
-      // return const HomePage();
-      return null;
+      return const RidersPage();
     } else if (index == 2) {
-      // return showModal();
-      //   return const HomePage();
     } else if (index == 3) {
-      //   return const PharmacistsPage();
       return const OffersPage();
-      // } else if (index == 4) {
-      //   return const SettingsPage();
-      //   // } else if (index == 5) {
-      //   //   return const AccountScreen();
     } else {
-      return null;
-      //   return const PrescriptionsPage();
-      // }
+      return const Payouts();
     }
   }
 

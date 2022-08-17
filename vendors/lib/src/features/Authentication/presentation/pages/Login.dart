@@ -212,7 +212,7 @@ class _LoginState extends State<Login> {
                       Text(
                         'Don\'t have an account?',
                         style: GoogleFonts.poppins(
-                          fontSize: 14,
+                          fontSize: 18,
                           letterSpacing: .25,
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
@@ -224,9 +224,8 @@ class _LoginState extends State<Login> {
                         },
                         child: Text(
                           'REGISTER',
-
                           style: GoogleFonts.poppins(
-                            fontSize: 16,
+                            fontSize: 18,
                             letterSpacing: .5,
                             color: SECOND_COLOR,
                             fontWeight: FontWeight.w700,

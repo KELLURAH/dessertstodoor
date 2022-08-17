@@ -21,14 +21,14 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
-    List<Color> gradientColors = [
-      PRIMARY_COLOR,
-      OFFERS_COLOR,
-      SECOND_COLOR,
-      Colors.green.withOpacity(0.1)
-    ];
+    // List<Color> gradientColors = [
+    //   PRIMARY_COLOR,
+    //   OFFERS_COLOR,
+    //   SECOND_COLOR,
+    //   Colors.green.withOpacity(0.1)
+    // ];
 
-    bool showAvg = false;
+    // bool showAvg = false;
 
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -116,7 +116,7 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 addVertical(size.height * 0.035),
-                subText('Summary', fontSize: 16),
+                subText('Summary'),
                 const Divider(),
                 addVertical(10),
                 Container(
@@ -280,6 +280,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
                       ),
                     ),
+                  
                   ),
                 ),
                 addVertical(size.height * 0.0325),
