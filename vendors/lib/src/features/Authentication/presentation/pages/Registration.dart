@@ -111,7 +111,7 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   Image.asset(
                     'assets/images/logo.png',
-                    height: 95,
+                    height: size.height * 0.15,
                   ),
                   addVertical(10),
                   Text(
@@ -138,7 +138,7 @@ class _RegistrationState extends State<Registration> {
                 ],
               ),
             ),
-            const Divider(),
+            const Divider(thickness: .45, color: Colors.black54),
             addVertical(size.height * 0.025),
             SingleChildScrollView(
               child: Column(
@@ -270,7 +270,7 @@ class _RegistrationState extends State<Registration> {
                             Text(
                               'Already have an account?',
                               style: GoogleFonts.poppins(
-                                fontSize: 14,
+                                fontSize: 18,
                                 letterSpacing: .25,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
@@ -283,7 +283,7 @@ class _RegistrationState extends State<Registration> {
                               child: Text(
                                 'LOGIN',
                                 style: GoogleFonts.poppins(
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   letterSpacing: .5,
                                   color: SECOND_COLOR,
                                   fontWeight: FontWeight.w700,
@@ -314,66 +314,66 @@ class _RegistrationState extends State<Registration> {
 
   void onButtonPressed() async {
     // signIn();
-    if (validateAndSave()) {
-      setState(() {
-        isAPIcall = true;
-      });
+    // if (validateAndSave()) {
+    setState(() {
+      isAPIcall = true;
+    });
 
-      var data = {
-        'username': emailController.text,
-        'password': passwordController.text,
-      };
-      setState(() {
-        isAPIcall = false;
-      });
-      Navigator.pushReplacementNamed(context, '/otp');
-      // var res = await PhamarxAPI().authData(data, LOGIN_URL);
-      // var body = json.decode(res.body);
-      // if (res.statusCode == 200) {
-      //   HelperFunctions.saveUserName(emailController.text);
-      //   HelperFunctions.saveUserLoggedInState(true);
+    var data = {
+      'username': emailController.text,
+      'password': passwordController.text,
+    };
+    setState(() {
+      isAPIcall = false;
+    });
+    Navigator.pushReplacementNamed(context, '/otp');
+    // var res = await PhamarxAPI().authData(data, LOGIN_URL);
+    // var body = json.decode(res.body);
+    // if (res.statusCode == 200) {
+    //   HelperFunctions.saveUserName(emailController.text);
+    //   HelperFunctions.saveUserLoggedInState(true);
 
-      //   Navigator.pushReplacement(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => Index(
-      //         name: body['username'],
-      //         email: body['email'],
-      //       ),
-      //     ),
-      //   );
-      //   setState(() {
-      //     isAPIcall = false;
-      //   });
-      //   UtilityService().showMessage(
-      //     isSuccess: true,
-      //     context: context,
-      //     message: '${emailController.text} has successfully logged in!',
-      //     icon: Icon(Icons.check_box, color: Colors.teal[400]),
-      //   );
-      // } else {
-      //   UtilityService().showMessage(
-      //     isSuccess: false,
-      //     context: context,
-      //     message: body['detail'][0],
-      //     icon: Icon(Icons.error, color: Colors.red[400]),
-      //   );
-      //   Navigator.pop(context);
-      // }
-    }
+    //   Navigator.pushReplacement(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => Index(
+    //         name: body['username'],
+    //         email: body['email'],
+    //       ),
+    //     ),
+    //   );
+    //   setState(() {
+    //     isAPIcall = false;
+    //   });
+    //   UtilityService().showMessage(
+    //     isSuccess: true,
+    //     context: context,
+    //     message: '${emailController.text} has successfully logged in!',
+    //     icon: Icon(Icons.check_box, color: Colors.teal[400]),
+    //   );
+    // } else {
+    //   UtilityService().showMessage(
+    //     isSuccess: false,
+    //     context: context,
+    //     message: body['detail'][0],
+    //     icon: Icon(Icons.error, color: Colors.red[400]),
+    //   );
+    //   Navigator.pop(context);
+    // }
+    // }
   }
 
-  bool validateAndSave() {
-    final form = _formkey.currentState;
-    if (form!.validate()) {
-      if (passwordController.text == confirmController.text) {
-        form.save();
-      }
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // bool validateAndSave() {
+  //   final form = _formkey.currentState;
+  //   if (form!.validate()) {
+  //     if (passwordController.text == confirmController.text) {
+  //       form.save();
+  //     }
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   TextFormField buildFormField(
     String hint,
@@ -394,13 +394,16 @@ class _RegistrationState extends State<Registration> {
             color: Colors.black,
             fontWeight: FontWeight.w600,
             letterSpacing: .5,
-            fontSize: 14,
+            fontSize: 16,
           ),
         ),
         labelText: label,
         labelStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+          ),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
@@ -453,15 +456,15 @@ class _RegistrationState extends State<Registration> {
                       : (val) {
                           confirmController.text = val;
                         },
-      onEditingComplete: () {
-        if (emailController.text.isNotEmpty &&
-            passwordController.text.isNotEmpty &&
-            confirmController.text.isNotEmpty) {
-          setState(() {
-            isFilled = true;
-          });
-        }
-      },
+      // onEditingComplete: () {
+      //   if (emailController.text.isNotEmpty &&
+      //       passwordController.text.isNotEmpty &&
+      //       confirmController.text.isNotEmpty) {
+      //     setState(() {
+      //       isFilled = true;
+      //     });
+      //   }
+      // },
       obscureText: isPassword ? true : false,
     );
   }

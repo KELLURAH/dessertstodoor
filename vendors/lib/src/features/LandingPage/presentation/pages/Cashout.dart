@@ -157,13 +157,14 @@ class PayoutsState extends State<Payouts> {
           ),
 
           ListTile(
-            trailing: const Icon(Icons.navigate_next, size: 30),
+            // trailing: const Icon(Icons.navigate_next, size: 30),
             leading: Image.asset('assets/images/transaction.png', height: 25),
+            trailing: subText('Coming soon'),
             title: subText('See Transactions', fontSize: 17),
             onTap: null,
             // tileColor: SECOND_COLOR,
           ),
-          // ),
+
           ListTile(
             trailing: const Icon(Icons.navigate_next_outlined, size: 30),
             leading: const Icon(
@@ -174,6 +175,7 @@ class PayoutsState extends State<Payouts> {
             onTap: () => Navigator.pushNamed(context, '/wFunds'),
             // tileColor: SECOND_COLOR,
           ),
+         
           ListTile(
             trailing: const Icon(Icons.navigate_next_outlined, size: 30),
             leading: const Icon(
@@ -184,7 +186,6 @@ class PayoutsState extends State<Payouts> {
             onTap: () => Navigator.pushNamed(context, '/wFunds'),
             // tileColor: SECOND_COLOR,
           ),
-          // addVertical(size.height * 0.035),
         ],
       ),
     );

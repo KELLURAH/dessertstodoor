@@ -23,7 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(seconds: 4),
+      const Duration(seconds: 5),
+      // ? Implement check when integration is done!
       () => Navigator.pushReplacementNamed(context, '/o'),
     );
   }
@@ -46,17 +47,14 @@ class _SplashScreenState extends State<SplashScreen> {
                     Center(
                       child: AvatarGlow(
                         glowColor: PRIMARY_COLOR.withOpacity(0.35),
-                        endRadius: 120,
+                        endRadius: 175,
                         repeat: true,
                         showTwoGlows: true,
-                        child: Container(),
-                      ),
-                    ),
-                    Center(
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        // height: deviceSize.height * 0.5,
-                        width: deviceSize.width,
+                        child: Image.asset(
+                          'assets/images/logo.png',
+                          height: deviceSize.height * 0.5,
+                          width: deviceSize.width,
+                        ),
                       ),
                     ),
                   ],

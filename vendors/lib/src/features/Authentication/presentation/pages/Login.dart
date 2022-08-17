@@ -107,7 +107,7 @@ class _LoginState extends State<Login> {
                 children: [
                   Image.asset(
                     'assets/images/logo.png',
-                    height: 95,
+                    height: size.height * 0.15,
                   ),
                   addVertical(10),
                   Text(
@@ -115,15 +115,14 @@ class _LoginState extends State<Login> {
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black54,
+                      color: Colors.black,
                       letterSpacing: .75,
-                      fontStyle: FontStyle.normal,
                     ),
                   ),
                 ],
               ),
             ),
-            const Divider(),
+            const Divider(thickness: .45, color: Colors.black54),
             addVertical(size.height * 0.035),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 45.0),
@@ -358,53 +357,52 @@ class _LoginState extends State<Login> {
 
   void onButtonPressed() async {
     // signIn();
-    if (validateAndSave()) {
-      setState(() {
-        isAPIcall = true;
-      });
+    // if (validateAndSave()) {
+    setState(() {
+      isAPIcall = true;
+    });
 
-      var data = {
-        'username': emailController.text,
-        'password': passwordController.text,
-      };
-      setState(() {
-        isAPIcall = false;
-      });
-      Navigator.pushReplacementNamed(context, '/h');
-      // var res = await PhamarxAPI().authData(data, LOGIN_URL);
-      // var body = json.decode(res.body);
-      // if (res.statusCode == 200) {
-      //   HelperFunctions.saveUserName(emailController.text);
-      //   HelperFunctions.saveUserLoggedInState(true);
-
-      //   Navigator.pushReplacement(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => Index(
-      //         name: body['username'],
-      //         email: body['email'],
-      //       ),
-      //     ),
-      //   );
-      //   setState(() {
-      //     isAPIcall = false;
-      //   });
-      //   UtilityService().showMessage(
-      //     isSuccess: true,
-      //     context: context,
-      //     message: '${emailController.text} has successfully logged in!',
-      //     icon: Icon(Icons.check_box, color: Colors.teal[400]),
-      //   );
-      // } else {
-      //   UtilityService().showMessage(
-      //     isSuccess: false,
-      //     context: context,
-      //     message: body['detail'][0],
-      //     icon: Icon(Icons.error, color: Colors.red[400]),
-      //   );
-      //   Navigator.pop(context);
-      // }
-    }
+    var data = {
+      'username': emailController.text,
+      'password': passwordController.text,
+    };
+    setState(() {
+      isAPIcall = false;
+    });
+    Navigator.pushReplacementNamed(context, '/h');
+    // var res = await PhamarxAPI().authData(data, LOGIN_URL);
+    // var body = json.decode(res.body);
+    // if (res.statusCode == 200) {
+    //   HelperFunctions.saveUserName(emailController.text);
+    //   HelperFunctions.saveUserLoggedInState(true);
+    //   Navigator.pushReplacement(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => Index(
+    //         name: body['username'],
+    //         email: body['email'],
+    //       ),
+    //     ),
+    //   );
+    //   setState(() {
+    //     isAPIcall = false;
+    //   });
+    //   UtilityService().showMessage(
+    //     isSuccess: true,
+    //     context: context,
+    //     message: '${emailController.text} has successfully logged in!',
+    //     icon: Icon(Icons.check_box, color: Colors.teal[400]),
+    //   );
+    // } else {
+    //   UtilityService().showMessage(
+    //     isSuccess: false,
+    //     context: context,
+    //     message: body['detail'][0],
+    //     icon: Icon(Icons.error, color: Colors.red[400]),
+    //   );
+    //   Navigator.pop(context);
+    // }
+    // }
   }
 
   bool validateAndSave() {
@@ -472,7 +470,7 @@ class _LoginState extends State<Login> {
           borderSide: const BorderSide(color: Colors.black54, width: 1.5),
         ),
       ),
-      keyboardType: isPhone ? TextInputType.phone : TextInputType.text,
+      keyboardType: isPhone ? TextInputType.emailAddress : TextInputType.text,
       onChanged: isPhone
           ? (val) {
               emailController.text = val;
@@ -484,14 +482,14 @@ class _LoginState extends State<Login> {
               : (val) {
                   resetPhone.text = val;
                 },
-      onEditingComplete: () {
-        if (emailController.text.isNotEmpty &&
-            passwordController.text.isNotEmpty) {
-          setState(() {
-            isFilled = true;
-          });
-        }
-      },
+      // onEditingComplete: () {
+      //   if (emailController.text.isNotEmpty &&
+      //       passwordController.text.isNotEmpty) {
+      //     setState(() {
+      //       isFilled = true;
+      //     });
+      //   }
+      // },
       obscureText: !isPhone ? true : false,
     );
   }
