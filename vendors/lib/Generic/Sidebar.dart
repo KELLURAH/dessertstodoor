@@ -56,6 +56,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                   ),
                   onTap: () {
                     Navigator.pop(context!);
+                    Navigator.pushNamed(context, '/notifications');
                   },
                 ),
               ),

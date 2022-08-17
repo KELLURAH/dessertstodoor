@@ -130,8 +130,7 @@ class _LandingPageState extends State<LandingPage> {
                         color: Colors.grey.withOpacity(0.15),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset:
-                            const Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
@@ -220,8 +219,7 @@ class _LandingPageState extends State<LandingPage> {
                         color: Colors.grey.withOpacity(0.15),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset:
-                            const Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
@@ -239,25 +237,25 @@ class _LandingPageState extends State<LandingPage> {
                       columnSpacing: 10,
                       horizontalMargin: 12,
                       minWidth: 600,
-                      columns: const [
+                      columns: [
                         DataColumn2(
-                          label: Text('Order Number'),
+                          label: subText('Order Number', fontSize: 14),
                           size: ColumnSize.M,
                         ),
                         DataColumn2(
-                          label: Text('Customer Name'),
+                          label: subText('Customer Name', fontSize: 14),
                           size: ColumnSize.L,
                         ),
                         DataColumn2(
-                          label: Text('Order Date'),
+                          label: subText('Order Date', fontSize: 14),
                           size: ColumnSize.M,
                         ),
                         DataColumn2(
-                          label: Text('Due Date'),
+                          label: subText('Due Date', fontSize: 14),
                           size: ColumnSize.M,
                         ),
                         DataColumn2(
-                          label: Text('No. of Items'),
+                          label: subText('No. of Items', fontSize: 14),
                           size: ColumnSize.M,
                           numeric: true,
                         ),
@@ -272,15 +270,19 @@ class _LandingPageState extends State<LandingPage> {
                           cells: [
                             DataCell(Text('A' * (10 - index % 10))),
                             DataCell(Text('B' * (10 - (index + 5) % 10))),
-                            const DataCell(Text('${DateTime.april}')),
+                            DataCell(Text(
+                                '${DateTime.now().subtract(Duration(days: 10 - index % 30))}')),
                             DataCell(Text(
                                 '${DateTime.now().subtract(Duration(days: index))}')),
-                            DataCell(Text(((index + 0.1) * 25.4).toString()))
+                            DataCell(
+                              subTextRaleway(
+                                ((index + 1) * 25).toString(),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  
                   ),
                 ),
                 addVertical(size.height * 0.0325),

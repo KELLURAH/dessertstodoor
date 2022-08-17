@@ -32,18 +32,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     return Material(
-      child: Container(
+      child: SizedBox(
         height: deviceSize.height,
         width: deviceSize.width,
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage(ThemeImages.splashBg),
-        //     colorFilter: const ColorFilter.mode(
-        //       Color(0xfff6940d),
-        //       BlendMode.softLight,
-        //     ),
-        //   ),
-        // ),
         child: Center(
           child: Container(
             alignment: Alignment.center,
@@ -74,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Column(
                   children: [
                     Text(
-                      'Desserts2Door',
+                      'Desserts to Door',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -90,8 +81,6 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
-                // const CircularProgressIndicator()
               ],
             ),
           ),

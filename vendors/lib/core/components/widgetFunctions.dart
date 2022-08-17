@@ -35,10 +35,7 @@ AppBar appbar(
   );
 }
 
-AppBar appBar(
-    {String? title,
-    Color? backgroundColor,
-    BuildContext? context}) {
+AppBar appBar({String? title, Color? backgroundColor, BuildContext? context}) {
   return AppBar(
     backgroundColor: backgroundColor ?? Colors.white,
     leading: IconButton(
@@ -210,6 +207,7 @@ Container screenBody({required List<Widget>? children, required Size size}) {
   return Container(
     height: size.height,
     decoration: const BoxDecoration(color: BACKGROUND_COLOR),
+    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
     child: SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 7),
       physics: const BouncingScrollPhysics(),

@@ -73,7 +73,6 @@ class _IndexState extends State<Index> {
   }
 
   Widget? navigator(int index) {
-
     if (index == 0) {
       return LandingPage(email: widget.email, name: widget.name);
     } else if (index == 1) {
