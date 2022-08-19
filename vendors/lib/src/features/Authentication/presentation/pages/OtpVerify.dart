@@ -3,11 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 
-import '../../../../../core/components/TextButtonComponent.dart';
 import '../../../../../core/components/widgetFunctions.dart';
 import '../../../../../core/utils/Colors.dart';
-import '../../../../../core/utils/UtilityService.dart';
-import '../../data/models/UserModel.dart';
 
 class OtpVerify extends StatefulWidget {
   // final UserModel? otpModel;
@@ -62,7 +59,7 @@ class _OtpVerifyState extends State<OtpVerify> {
               style: ElevatedButton.styleFrom(primary: PRIMARY_COLOR),
               child: Text(
                 'VERIFY',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.raleway(
                   fontSize: 18,
                   letterSpacing: .35,
                   color: WHITE_COLOR,

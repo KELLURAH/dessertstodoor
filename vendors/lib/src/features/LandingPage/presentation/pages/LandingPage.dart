@@ -2,11 +2,11 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vendors/core/components/DashboardCard.dart';
 
+import '../../../../../Generic/Sidebar.dart';
+import '../../../../../core/components/DashboardCard.dart';
 import '../../../../../core/components/widgetFunctions.dart';
 import '../../../../../core/utils/Colors.dart';
-import '../../../../../Generic/Sidebar.dart';
 
 class LandingPage extends StatefulWidget {
   final String name;
@@ -33,10 +33,6 @@ class _LandingPageState extends State<LandingPage> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: Sidebar(name: widget.name, email: widget.email, context: context),
-      // floatingActionButton: const FloatingActionButton(
-      //   onPressed: null,
-      //   child: Icon(Icons.add),
-      // ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: Builder(builder: (context) {

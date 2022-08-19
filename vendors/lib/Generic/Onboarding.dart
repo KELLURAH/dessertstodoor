@@ -46,9 +46,9 @@ class OnBoarding extends StatelessWidget {
           OnboardingDetails(
             'assets/svgs/welcome.svg',
             size: size,
-            title: '👋🏾 Welcome to Desserts2Door',
+            title: '👋🏾 Welcome to Desserts to Door',
             description:
-                'Your one in all shop for all your pastry needs...\nOrder your favourite pastry!',
+                'Your one in all shop for all your pastry needs...\nOrder your favourite pastries!',
           ),
           OnboardingDetails(
             'assets/svgs/order.svg',

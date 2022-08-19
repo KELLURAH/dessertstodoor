@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vendors/core/components/widgetFunctions.dart';
 
+import '../core/components/widgetFunctions.dart';
 import '../core/utils/Colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -42,30 +42,24 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Stack(
-                  children: [
-                    Center(
-                      child: AvatarGlow(
-                        glowColor: PRIMARY_COLOR.withOpacity(0.35),
-                        endRadius: 175,
-                        repeat: true,
-                        showTwoGlows: true,
-                        child: Image.asset(
-                          'assets/images/logo.png',
-                          height: deviceSize.height * 0.5,
-                          width: deviceSize.width,
-                        ),
-                      ),
-                    ),
-                  ],
+                AvatarGlow(
+                  glowColor: PRIMARY_COLOR.withOpacity(0.35),
+                  endRadius: 175,
+                  repeat: true,
+                  showTwoGlows: true,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    height: deviceSize.height * 0.5,
+                    width: deviceSize.width,
+                  ),
                 ),
-                addVertical(deviceSize.height * 0.2),
+                addVertical(deviceSize.height * 0.125),
                 Column(
                   children: [
                     Text(
                       'Desserts to Door',
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
+                      style: GoogleFonts.raleway(
+                        fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
