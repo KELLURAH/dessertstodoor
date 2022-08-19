@@ -29,7 +29,7 @@ class OffersCards extends StatelessWidget {
       width: size.width * 0.4,
       padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(25)),
+        borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.15),
@@ -42,8 +42,8 @@ class OffersCards extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(5),
         decoration: const BoxDecoration(
-          color: WHITE_COLOR,
-          borderRadius: BorderRadius.all(Radius.circular(15)),
+          color: Colors.black54,
+          borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
         child: Stack(
           children: <Widget>[
@@ -59,11 +59,49 @@ class OffersCards extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: fontSize ?? 18,
                   letterSpacing: .5,
-                  color: Colors.black,
+                  color: WHITE_COLOR,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class OrdersCard extends OffersCards {
+  final String? header;
+  final String? value;
+  // final String? image;
+  const OrdersCard({
+    Key? key,
+    required super.title,
+    required super.subtitle,
+    required super.image,
+    required this.header,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Image.asset(image!),
+      title: subTextRaleway(
+        title,
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+        letterSpacing: .75,
+      ),
+      subtitle: subTextRaleway(subtitle, fontWeight: FontWeight.w500),
+      trailing: Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Column(
+          children: [
+            subTextRaleway(header, fontWeight: FontWeight.w400),
+            addVertical(3),
+            subText(value, fontWeight: FontWeight.w600),
           ],
         ),
       ),

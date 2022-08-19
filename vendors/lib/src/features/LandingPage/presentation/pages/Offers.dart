@@ -36,7 +36,7 @@ class OffersPageState extends State<OffersPage> {
     },
     {
       'name': 'Picnics',
-      'image': 'assets/images/dessert.png',
+      'image': 'assets/images/logo.png',
       'discount': '1700',
     },
     {
@@ -46,7 +46,90 @@ class OffersPageState extends State<OffersPage> {
     },
   ];
 
-  _callModal({size}) {
+  List<Map> recentOrders = [
+    {
+      'cus_name': 'John Doe',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Cake',
+      'image': 'assets/images/cake.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+    {
+      'cus_name': 'Flutter Ghana',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Anniversary',
+      'image': 'assets/images/cupcake.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+    {
+      'cus_name': 'John',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Cake',
+      'image': 'assets/images/cookie.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+    {
+      'cus_name': 'Joseph',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Anniversary',
+      'image': 'assets/images/cake.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Mobile Money',
+    },
+    {
+      'cus_name': 'John Doe',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Cake',
+      'image': 'assets/images/logo.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+    {
+      'cus_name': 'John Doe',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Anniversary',
+      'image': 'assets/images/logo.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+    {
+      'cus_name': 'John Doe',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Cake',
+      'image': 'assets/images/cake.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+    {
+      'cus_name': 'John Doe',
+      'order_no': '12345',
+      'order_date': '12/12/2020',
+      'order_item': 'Cake',
+      'image': 'assets/images/cake.png',
+      'due_date': '12/12/2020',
+      'payment_status': 'Paid',
+      'payment_mode': 'Cash on Delivery',
+    },
+  ];
+  
+  callModal({size}) {
     showDialog(
       context: context,
       // barrierDismissible: true,
@@ -148,7 +231,7 @@ class OffersPageState extends State<OffersPage> {
         backgroundColor: Colors.white,
         elevation: 0.25,
         title: Text(
-          'Offers',
+          'Orders',
           style: GoogleFonts.poppins(
             color: Colors.black,
             fontWeight: FontWeight.w500,
@@ -156,294 +239,77 @@ class OffersPageState extends State<OffersPage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: OFFERS_COLOR,
-        onPressed: () => _callModal(size: size),
-        child: const Icon(Icons.add, size: 40),
-      ),
       body: screenBody(
         size: size,
         children: [
-          Container(
-            decoration: const BoxDecoration(color: BACKGROUND_COLOR),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.amberAccent.withOpacity(0.15),
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.warning_amber_outlined,
-                        color: Colors.amberAccent,
-                      ),
-                      addHorizontal(size.width * 0.025),
-                      Expanded(
-                        child: subText(
-                          'Only two offers can be created per vendor...',
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Divider(thickness: .35, color: Colors.black54),
-                addVertical(10),
-                // Builder(builder: (context) {
-                //   return Column(
-                //     crossAxisAlignment: CrossAxisAlignment.start,
-                //     mainAxisAlignment: MainAxisAlignment.start,
-                //     children: [
-                //       Container(
-                //         decoration: const BoxDecoration(
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.black12,
-                //               blurRadius: 5,
-                //               spreadRadius: 1,
-                //             ),
-                //           ],
-                //         ),
-                //         child: Card(
-                //           child: Container(
-                //             padding: const EdgeInsets.all(5),
-                //             height: MediaQuery.of(context).size.height * 0.4,
-                //             child: Builder(builder: (context) {
-                //               return Column(
-                //                 crossAxisAlignment: CrossAxisAlignment.start,
-                //                 mainAxisAlignment: MainAxisAlignment.start,
-                //                 children: [
-                //                   subText('Add Package as Offer', fontSize: 15),
-                //                   Row(
-                //                     mainAxisAlignment:
-                //                         MainAxisAlignment.spaceBetween,
-                //                     children: [
-                //                       Expanded(
-                //                         child: DropdownSearch<String>(
-                //                           popupProps: PopupProps.menu(
-                //                             showSelectedItems: true,
-                //                             disabledItemFn: (String s) {
-                //                               return s.startsWith('Co') ||
-                //                                   s.startsWith('D') ||
-                //                                   s.startsWith('P');
-                //                             },
-                //                           ),
-                //                           items: const [
-                //                             'Anniversary',
-                //                             'Cookies (Coming Soon...)',
-                //                             'Birthday',
-                //                             'Desserts (Coming Soon...)',
-                //                             'Family',
-                //                             'Picnics (Coming Soon...)',
-                //                           ],
-                //                           // items: offers[index]['name'],
+          subTextRaleway('Sort out your orders with these filters:'),
+          const Divider(color: Colors.black54, thickness: .5),
+          addVertical(10),
+          // ? Filter
 
-                //
-                //             onChanged: print,
-                //                           selectedItem: 'Add Package',
-                //                         ),
-                //                       ),
-                //                       addHorizontal(10),
-                //                       Expanded(
-                //                         child: DropdownSearch<String>(
-                //                           popupProps: const PopupProps.menu(
-                //                             showSelectedItems: false,
-                //                           ),
-                //                           items: [
-                //                             'GH¢ ${double.parse('1000.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('1200.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('1250.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('1500.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('2000.00').toStringAsFixed(2)}',
-                //                           ],
-                //                           // items: [
-                //                           //   'GH¢ ${offers[index]['discount']}',
-                //                           // ],
-                //                           onChanged: print,
-                //                           selectedItem: 'Offer Price',
-                //                         ),
-                //                       ),
-                //                     ],
-                //                   ),
-                //                   addVertical(10),
-                //                   Padding(
-                //                     padding: const EdgeInsets.symmetric(
-                //                         horizontal: 70),
-                //                     child: TextFormField(
-                //                       readOnly: true,
-                //                       decoration: InputDecoration(
-                //                         labelText: 'Current Price',
-                //                         labelStyle: GoogleFonts.poppins(
-                //                           color: Colors.black,
-                //                           fontWeight: FontWeight.w500,
-                //                           fontSize: 15,
-                //                         ),
-                //                         border: OutlineInputBorder(
-                //                           borderRadius: BorderRadius.circular(5),
-                //                         ),
-                //                       ),
-                //                     ),
-                //                   ),
-                //                   addVertical(size.height * 0.015),
-                //                   Center(
-                //                     child: Container(
-                //                       decoration: BoxDecoration(
-                //                         color: PRIMARY_COLOR.withOpacity(0.05),
-                //                       ),
-                //                       child: Image.asset(
-                //                         // offers[index]['image'],
-                //                         'assets/images/cake.png',
-                //                         fit: BoxFit.cover,
-                //                       ),
-                //                     ),
-                //                   ),
-                //                 ],
-                //               );
-                //             }),
-                //           ),
-                //         ),
-                //       ),
-                //       addVertical(15),
-                //       Container(
-                //         decoration: const BoxDecoration(
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.black12,
-                //               blurRadius: 5,
-                //               spreadRadius: 1,
-                //             ),
-                //           ],
-                //         ),
-                //         child: Card(
-                //           child: Container(
-                //             padding: const EdgeInsets.all(5),
-                //             height: MediaQuery.of(context).size.height * 0.4,
-                //             child: Expanded(
-                //               child: Column(
-                //                 crossAxisAlignment: CrossAxisAlignment.start,
-                //                 mainAxisAlignment: MainAxisAlignment.start,
-                //                 children: [
-                //                   subText('Add Product as Offer', fontSize: 15),
-                //                   Row(
-                //                     mainAxisAlignment:
-                //                         MainAxisAlignment.spaceBetween,
-                //                     children: [
-                //                       Expanded(
-                //                         child: DropdownSearch<String>(
-                //                           popupProps: PopupProps.menu(
-                //                             showSelectedItems: true,
-                //                             disabledItemFn: (String s) {
-                //                               return s.startsWith('Co') ||
-                //                                   s.startsWith('D');
-                //                             },
-                //                           ),
-                //                           items: const [
-                //                             'Anniversary',
-                //                             'Cookies (Coming Soon...)',
-                //                             'Birthday Cakes',
-                //                             'Desserts (Coming Soon...)',
-                //                             'Family',
-                //                             'Picnics (New)',
-                //                           ],
-                //                           onChanged: print,
-                //                           selectedItem: 'Add Product',
-                //                         ),
-                //                       ),
-                //                       addHorizontal(10),
-                //                       Expanded(
-                //                         child: DropdownSearch<String>(
-                //                           popupProps: const PopupProps.menu(
-                //                             showSelectedItems: false,
-                //                           ),
-                //                           items: [
-                //                             'GH¢ ${double.parse('350.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('400.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('450.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('500.00').toStringAsFixed(2)}',
-                //                             'GH¢ ${double.parse('550.00').toStringAsFixed(2)}',
-                //                           ],
-                //                           onChanged: print,
-                //                           selectedItem: 'Offer Price',
-                //                         ),
-                //                       ),
-                //                     ],
-                //                   ),
-                //                   addVertical(10),
-                //                   Padding(
-                //                     padding: const EdgeInsets.symmetric(
-                //                         horizontal: 70),
-                //                     child: TextFormField(
-                //                       readOnly: true,
-                //                       decoration: InputDecoration(
-                //                         labelText: 'Current Price',
-                //                         labelStyle: GoogleFonts.poppins(
-                //                           color: Colors.black,
-                //                           fontWeight: FontWeight.w500,
-                //                           fontSize: 15,
-                //                         ),
-                //                         border: OutlineInputBorder(
-                //                           borderRadius: BorderRadius.circular(5),
-                //                         ),
-                //                       ),
-                //                     ),
-                //                   ),
-                //                   addVertical(size.height * 0.015),
-                //                   Center(
-                //                     child: Container(
-                //                       decoration: BoxDecoration(
-                //                         color: PRIMARY_COLOR.withOpacity(0.15),
-                //                       ),
-                //                       child: Image.asset(
-                //                         // offers[index]['image'],
-                //                         'assets/images/cake.png',
-                //                         fit: BoxFit.cover,
-                //                       ),
-                //                     ),
-                //                   ),
-                //                 ],
-                //               ),
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //       addVertical(size.height * 0.035),
-                //       // PaymentInfoSettings(size, '0201154679')
-                //     ],
-                //   );
-                // }),
-                // * New Looks
-                Builder(
-                  builder: (context) {
-                    return GridView.builder(
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      padding: const EdgeInsets.only(bottom: 40),
-                      itemCount: offers.length,
-                      itemBuilder: (context, index) {
-                        return SizedBox(
-                          height: size.height * 0.125,
-                          child: OffersCards(
-                            backgroundColor: OFFERS_COLOR.withOpacity(.725),
-                            subtitle: offers[index]['discount'],
-                            image: offers[index]['image'],
-                            title: offers[index]['name'],
-                          ),
-                        );
-                      },
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 1.025,
-                        crossAxisSpacing: 2.5,
-                        mainAxisSpacing: 10,
+          SizedBox(
+            height: size.height * 0.2,
+            child: Builder(
+              builder: (context) {
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.only(bottom: 40),
+                  itemCount: offers.length,
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      height: size.height * 0.125,
+                      child: OffersCards(
+                        backgroundColor: OFFERS_COLOR.withOpacity(.725),
+                        subtitle: offers[index]['discount'],
+                        image: offers[index]['image'],
+                        title: offers[index]['name'],
                       ),
                     );
                   },
-                ),
-              ],
+                  // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //   crossAxisCount: offers.length,
+                  //   childAspectRatio: 1.025,
+                  //   crossAxisSpacing: 2.5,
+                  //   mainAxisSpacing: 10,
+                  // ),
+                );
+              },
+            ),
+          ),
+          addVertical(size.height * 0.0035),
+
+          subTextRaleway('Your Due Orders', letterSpacing: .35),
+          const Divider(color: Colors.black54, thickness: .5),
+          addVertical(10),
+          SizedBox(
+            height: size.height * 0.75,
+            child: ListView.separated(
+              itemCount: recentOrders.length,
+              itemBuilder: (context, index) {
+                return SizedBox(
+                  height: size.height * 0.1,
+                  child: Card(
+                    elevation: 1.25,
+                    color: OFFERS_COLOR.withOpacity(0.35),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: Colors.white,
+                      ),
+                      child: OrdersCard(
+                        image: recentOrders[index]['image'],
+                        title: recentOrders[index]['order_item'],
+                        subtitle: recentOrders[index]['cus_name'],
+                        header: 'Order No:',
+                        value: recentOrders[index]['order_no'],
+                      ),
+                    ),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) => addVertical(10),
             ),
           ),
         ],

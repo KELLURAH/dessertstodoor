@@ -8,7 +8,6 @@ import 'package:vendors/src/features/LandingPage/presentation/pages/Cashout.dart
 
 import '../../core/components/ProgressDialog.dart';
 import '../../core/utils/UtilityService.dart';
-
 import '../src/features/LandingPage/presentation/pages/LandingPage.dart';
 import '../src/features/LandingPage/presentation/pages/Offers.dart';
 import '../src/features/LandingPage/presentation/pages/RidersPage.dart';
@@ -122,7 +121,7 @@ class _IndexState extends State<Index> {
           icon: const Icon(Icons.motorcycle_outlined),
           title: Text(
             'Riders'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 10, color: Colors.blue),
+            style: GoogleFonts.raleway(fontSize: 12, color: Colors.blue),
           ),
           // selectedColor: Colors.blueGrey,
         ),
@@ -139,10 +138,10 @@ class _IndexState extends State<Index> {
 
         /// Likes
         SalomonBottomBarItem(
-          icon: const Icon(Icons.discount),
+          icon: Image.asset('assets/images/order.png', height: 30),
           title: Text(
-            'Offers'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 10),
+            'Orders'.toUpperCase(),
+            style: GoogleFonts.raleway(fontSize: 12),
           ),
           selectedColor: OFFERS_COLOR,
         ),

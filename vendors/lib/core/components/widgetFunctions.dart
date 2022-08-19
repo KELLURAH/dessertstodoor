@@ -143,14 +143,17 @@ Text subText(String? text,
 }
 
 Text subTextRaleway(String? text,
-    {Color? color, double? fontSize, FontWeight? fontWeight}) {
+    {Color? color,
+    double? fontSize,
+    FontWeight? fontWeight,
+    double? letterSpacing}) {
   return Text(
     text!,
     style: GoogleFonts.raleway(
       fontSize: fontSize ?? 16,
       fontWeight: fontWeight ?? FontWeight.w500,
       color: color ?? Colors.black,
-      letterSpacing: .25,
+      letterSpacing: letterSpacing ?? .25,
     ),
   );
 }
