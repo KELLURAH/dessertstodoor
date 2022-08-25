@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:vendors/Generic/Splash.dart';
+import 'package:vendors/core/utils/Colors.dart';
 import 'package:vendors/src/features/Authentication/presentation/pages/ProfilePage.dart';
 import 'package:vendors/src/features/Settings/presentation/pages/WithdrawFunds.dart';
 import 'package:vendors/src/features/Settings/presentation/widgets/PaymentMethods.dart';
@@ -25,6 +27,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.system,
+      theme: FlexColorScheme.light(
+        colors: lightMode,
+        useMaterial3ErrorColors: true,
+      ).toTheme,
+      darkTheme: FlexColorScheme.dark(
+        colors: lightMode.toDark(),
+        useMaterial3ErrorColors: true,
+      ).toTheme,
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),

@@ -128,7 +128,7 @@ class OffersPageState extends State<OffersPage> {
       'payment_mode': 'Cash on Delivery',
     },
   ];
-  
+
   callModal({size}) {
     showDialog(
       context: context,
@@ -228,12 +228,12 @@ class OffersPageState extends State<OffersPage> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         elevation: 0.25,
         title: Text(
           'Orders',
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            // color: Colors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
@@ -243,7 +243,7 @@ class OffersPageState extends State<OffersPage> {
         size: size,
         children: [
           subTextRaleway('Sort out your orders with these filters:'),
-          const Divider(color: Colors.black54, thickness: .5),
+          const Divider(thickness: .5),
           addVertical(10),
           // ? Filter
 
@@ -251,7 +251,7 @@ class OffersPageState extends State<OffersPage> {
             height: size.height * 0.2,
             child: Builder(
               builder: (context) {
-                return ListView.builder(
+                return ListView.separated(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
@@ -259,15 +259,26 @@ class OffersPageState extends State<OffersPage> {
                   itemCount: offers.length,
                   itemBuilder: (context, index) {
                     return SizedBox(
-                      height: size.height * 0.125,
-                      child: OffersCards(
-                        backgroundColor: OFFERS_COLOR.withOpacity(.725),
-                        subtitle: offers[index]['discount'],
-                        image: offers[index]['image'],
-                        title: offers[index]['name'],
+                      height: size.height * 0.12,
+                      child: Builder(
+                        builder: (context) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(35),
+                              color: Colors.white54,
+                            ),
+                            child: OffersCards(
+                              backgroundColor: OFFERS_COLOR.withOpacity(.725),
+                              subtitle: offers[index]['discount'],
+                              image: offers[index]['image'],
+                              title: offers[index]['name'],
+                            ),
+                          );
+                        },
                       ),
                     );
                   },
+                  separatorBuilder: (context, index) => addHorizontal(10),
                   // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   //   crossAxisCount: offers.length,
                   //   childAspectRatio: 1.025,
@@ -281,29 +292,34 @@ class OffersPageState extends State<OffersPage> {
           addVertical(size.height * 0.0035),
 
           subTextRaleway('Your Due Orders', letterSpacing: .35),
-          const Divider(color: Colors.black54, thickness: .5),
+          const Divider(thickness: .5),
           addVertical(10),
           SizedBox(
             height: size.height * 0.75,
             child: ListView.separated(
               itemCount: recentOrders.length,
               itemBuilder: (context, index) {
-                return SizedBox(
-                  height: size.height * 0.1,
-                  child: Card(
-                    elevation: 1.25,
-                    color: OFFERS_COLOR.withOpacity(0.35),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.white,
-                      ),
-                      child: OrdersCard(
-                        image: recentOrders[index]['image'],
-                        title: recentOrders[index]['order_item'],
-                        subtitle: recentOrders[index]['cus_name'],
-                        header: 'Order No:',
-                        value: recentOrders[index]['order_no'],
+                return GestureDetector(
+                  onTap: () {
+                    orderDetailsDialog(context, size, index);
+                  },
+                  child: SizedBox(
+                    height: size.height * 0.1,
+                    child: Card(
+                      elevation: 1.25,
+                      // color: SECOND_COLOR,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          // color: Colors.white70,
+                        ),
+                        child: OrdersCard(
+                          image: recentOrders[index]['image'],
+                          title: recentOrders[index]['order_item'],
+                          subtitle: recentOrders[index]['cus_name'],
+                          header: 'Order No:',
+                          value: recentOrders[index]['order_no'],
+                        ),
                       ),
                     ),
                   ),
@@ -313,6 +329,98 @@ class OffersPageState extends State<OffersPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<dynamic> orderDetailsDialog(
+      BuildContext context, Size size, int index) {
+    return showDialog(
+      context: context,
+      builder: (context) => Container(
+        width: size.width * 0.3,
+        padding: EdgeInsets.symmetric(
+          vertical: size.height * 0.3,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Dialog(
+            insetPadding:
+                const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                addVertical(10),
+                subText('Order Details'),
+                const Divider(color: Colors.black54, thickness: .5),
+                addVertical(10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          subText('Order No:', fontWeight: FontWeight.w500),
+                          subText(
+                            recentOrders[index]['order_no'],
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          subText(
+                            'Due Date:',
+                            fontWeight: FontWeight.w500,
+                          ),
+                          subText(
+                            recentOrders[index]['due_date'],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                addVertical(5),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          subText('Order No:', fontWeight: FontWeight.w500),
+                          subText(
+                            recentOrders[index]['order_no'],
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          subText(
+                            'Due Date:',
+                            fontWeight: FontWeight.w500,
+                          ),
+                          subText(
+                            recentOrders[index]['due_date'],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

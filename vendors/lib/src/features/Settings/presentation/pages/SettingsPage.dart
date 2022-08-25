@@ -2,11 +2,11 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vendors/src/features/Authentication/presentation/pages/ProfilePage.dart';
+// import 'package:vendors/src/features/Authentication/presentation/pages/ProfilePage.dart';
 import '../../../../../../../core/components/widgetFunctions.dart';
 import '../../../../../core/utils/Colors.dart';
 import '../../../../../core/utils/Path.dart';
-import '../../../../../core/utils/UtilityService.dart';
+// import '../../../../../core/utils/UtilityService.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class _SettingsPageState extends State<SettingsPage>
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         // elevation: 0.25,
         title: 'Settings',
         context: context,
@@ -54,8 +54,8 @@ class _SettingsPageState extends State<SettingsPage>
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         decoration: const BoxDecoration(
-          color: BACKGROUND_COLOR,
-        ),
+            // color: BACKGROUND_COLOR,
+            ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage>
                 width: MediaQuery.of(context).size.width,
                 height: 120,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  // color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
@@ -152,10 +152,12 @@ class _SettingsPageState extends State<SettingsPage>
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   letterSpacing: .5,
-                  color: Colors.black45,
+                  // color: Colors.black45,
                 ),
               ),
-              const Divider(thickness: .45, color: Colors.black54),
+              const Divider(
+                thickness: .45,
+              ),
               addVertical(10),
               PaymentInfoSettings(size, phone),
 
@@ -166,10 +168,11 @@ class _SettingsPageState extends State<SettingsPage>
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   letterSpacing: .5,
-                  color: Colors.black54,
                 ),
               ),
-              const Divider(thickness: .45, color: Colors.black54),
+              const Divider(
+                thickness: .45,
+              ),
               addVertical(10),
               ShopInfo(size, phone),
 
@@ -180,10 +183,12 @@ class _SettingsPageState extends State<SettingsPage>
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   letterSpacing: .5,
-                  color: Colors.black45,
+                  // color: Colors.black45,
                 ),
               ),
-              const Divider(thickness: .45, color: Colors.black54),
+              const Divider(
+                thickness: .45,
+              ),
               addVertical(10),
               // UserAccountSettings(size, phone),
               UserAccountsInfo(size, phone),
@@ -208,16 +213,16 @@ class _SettingsPageState extends State<SettingsPage>
       width: size.width,
       height: size.height * .3,
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.grey.withOpacity(0.15),
-        //     spreadRadius: 5,
-        //     blurRadius: 7,
-        //     offset: const Offset(0, 5), // changes position of shadow
-        //   ),
-        // ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.15),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 5), // changes position of shadow
+          ),
+        ],
       ),
       child: Column(
         children: [
@@ -269,7 +274,7 @@ class _SettingsPageState extends State<SettingsPage>
       width: size.width,
       height: size.height * .3,
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         // boxShadow: [
         //   BoxShadow(
@@ -366,7 +371,7 @@ class _SettingsPageState extends State<SettingsPage>
           //   ),
           //   leading: const Icon(
           //     Icons.dark_mode_outlined,
-          //     color: Colors.black,
+          //
           //   ),
           //   title: subText('Toggle Dark Mode'),
           //   onTap: null,
@@ -392,16 +397,16 @@ class _SettingsPageState extends State<SettingsPage>
       width: size.width,
       height: size.height * .3125,
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.grey.withOpacity(0.15),
-        //     spreadRadius: 5,
-        //     blurRadius: 7,
-        //     offset: const Offset(0, 3), // changes position of shadow
-        //   ),
-        // ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.15),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
       ),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -428,7 +433,6 @@ class _SettingsPageState extends State<SettingsPage>
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       letterSpacing: .5,
-                      color: Colors.black,
                     ),
                   ),
                   const Icon(Icons.navigate_next, size: 30)
@@ -448,7 +452,6 @@ class _SettingsPageState extends State<SettingsPage>
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       letterSpacing: .5,
-                      color: Colors.black,
                     ),
                   ),
                   const Icon(Icons.navigate_next, size: 30),
@@ -467,7 +470,6 @@ class _SettingsPageState extends State<SettingsPage>
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       letterSpacing: .5,
-                      color: Colors.black,
                     ),
                   ),
                   Text(
@@ -493,7 +495,6 @@ class _SettingsPageState extends State<SettingsPage>
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                         letterSpacing: .5,
-                        color: Colors.black,
                       ),
                     ),
                     const Icon(Icons.phone_in_talk, size: 30),
@@ -512,7 +513,6 @@ class _SettingsPageState extends State<SettingsPage>
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     letterSpacing: .5,
-                    color: Colors.black,
                   ),
                 ),
               ],

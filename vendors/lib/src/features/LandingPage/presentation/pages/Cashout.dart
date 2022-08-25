@@ -1,6 +1,7 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vendors/src/features/Authentication/presentation/pages/Login.dart';
 
 import '../../../../../core/components/widgetFunctions.dart';
 import '../../../../../core/utils/Colors.dart';
@@ -18,37 +19,39 @@ class PayoutsState extends State<Payouts> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         elevation: 0.25,
         title: Text(
           'Payouts',
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            // color: Colors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            subText('Wallet Activities'),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.0),
-              child: Divider(color: Colors.black54, thickness: 0.45),
-            ),
-            PaymentInfoSettings(size, '0201154679'),
-            addVertical(size.height * 0.025),
-            subText('Recent Withdrawals'),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.0),
-              child: Divider(color: Colors.black54, thickness: 0.45),
-            ),
-            RecentWithdrawals(size),
-          ],
-        ),
+      body: screenBody(
+        size: size,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              subText('Wallet Activities'),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                child: Divider(color: Colors.black54, thickness: 0.45),
+              ),
+              PaymentInfoSettings(size, '0201154679'),
+              addVertical(size.height * 0.025),
+              subText('Recent Withdrawals'),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                child: Divider(color: Colors.black54, thickness: 0.45),
+              ),
+              RecentWithdrawals(size),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -77,7 +80,7 @@ class PayoutsState extends State<Payouts> {
             topLeft: Radius.circular(25),
             bottomLeft: Radius.circular(25),
           ),
-          color: Colors.white,
+          // color: Colors.white,
         ),
         child: DataTable2(
           columnSpacing: 10,
@@ -85,19 +88,19 @@ class PayoutsState extends State<Payouts> {
           minWidth: 600,
           columns: [
             DataColumn2(
-              label: subText('Date'),
+              label: subText('Date', fontWeight: FontWeight.w600),
               size: ColumnSize.M,
             ),
             DataColumn2(
-              label: subText('Customer Name'),
+              label: subText('Customer Name', fontWeight: FontWeight.w600),
               size: ColumnSize.L,
             ),
             DataColumn2(
-              label: subText('Amount Withdrawn'),
+              label: subText('Amount Withdrawn', fontWeight: FontWeight.w600),
               size: ColumnSize.M,
             ),
             DataColumn2(
-              label: subText('Balance'),
+              label: subText('Balance', fontWeight: FontWeight.w600),
               size: ColumnSize.M,
             ),
           ],
@@ -133,9 +136,9 @@ class PayoutsState extends State<Payouts> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
-      height: size.height * .275,
+      height: size.height * .325,
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
@@ -151,7 +154,7 @@ class PayoutsState extends State<Payouts> {
           // ? Wallet
           ListTile(
             leading: const Icon(Icons.wallet, color: SECOND_COLOR),
-            title: subText('WALLET BALANCE'),
+            title: subText('WALLET BALANCE', fontSize: 14),
             trailing: subTextRaleway('GH¢ 4,000', fontSize: 16),
             onTap: null,
           ),
@@ -159,8 +162,11 @@ class PayoutsState extends State<Payouts> {
           ListTile(
             // trailing: const Icon(Icons.navigate_next, size: 30),
             leading: Image.asset('assets/images/transaction.png', height: 25),
-            trailing: subText('Coming soon'),
-            title: subText('See Transactions', fontSize: 17),
+            trailing: subTextRaleway('Coming soon', fontSize: 14),
+            title: subText(
+              'See Transactions',
+              fontSize: deviceWidth >= 400 ? 14 : 16,
+            ),
             onTap: null,
             // tileColor: SECOND_COLOR,
           ),
@@ -175,7 +181,7 @@ class PayoutsState extends State<Payouts> {
             onTap: () => Navigator.pushNamed(context, '/wFunds'),
             // tileColor: SECOND_COLOR,
           ),
-         
+
           ListTile(
             trailing: const Icon(Icons.navigate_next_outlined, size: 30),
             leading: const Icon(

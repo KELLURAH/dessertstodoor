@@ -1,8 +1,7 @@
 // ignore_for_file: file_names
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:vendors/core/utils/Colors.dart';
 import 'package:vendors/src/features/LandingPage/presentation/pages/Cashout.dart';
 
@@ -56,17 +55,11 @@ class _IndexState extends State<Index> {
     return false;
   }
 
-  void _onTap(int index) {
-    setState(() {
-      activeIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: buildBottomNavigationBar(),
-      backgroundColor: BACKGROUND_COLOR,
+      // backgroundColor: BACKGROUND_COLOR,
       body: navigator(_selectedIndex),
     );
   }
@@ -102,66 +95,37 @@ class _IndexState extends State<Index> {
     );
   }
 
-  SalomonBottomBar buildBottomNavigationBar() {
-    return SalomonBottomBar(
-      currentIndex: _selectedIndex,
+  CurvedNavigationBar buildBottomNavigationBar() {
+    return CurvedNavigationBar(
+      backgroundColor: Colors.transparent,
+      color: PRIMARY_COLOR,
+      height: 50,
+      index: _selectedIndex,
       onTap: (i) => setState(() => _selectedIndex = i),
       items: [
-        SalomonBottomBarItem(
-          icon: const Icon(Icons.dashboard),
-          title: Text(
-            'Dashboard'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 10),
-          ),
-          selectedColor: PRIMARY_COLOR,
+        Icon(
+          Icons.dashboard,
+          // color:  Colors.black : WHITE_COLOR,
         ),
 
         /// Riders
-        SalomonBottomBarItem(
-          icon: const Icon(Icons.motorcycle_outlined),
-          title: Text(
-            'Riders'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12, color: Colors.blue),
-          ),
-          // selectedColor: Colors.blueGrey,
+        Icon(
+          Icons.motorcycle_outlined,
+          // color: ThemeMode.light == true ? Colors.black : WHITE_COLOR,
         ),
 
         /// Home
-        SalomonBottomBarItem(
-          icon: const Icon(Icons.add),
-          title: Text(
-            'Add'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 10),
-          ),
-          selectedColor: Colors.teal,
+        Icon(
+          Icons.add,
+          // color: ThemeMode.light == true ? Colors.black : WHITE_COLOR,
         ),
 
-        /// Likes
-        SalomonBottomBarItem(
-          icon: Image.asset('assets/images/order.png', height: 30),
-          title: Text(
-            'Orders'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 12),
-          ),
-          selectedColor: OFFERS_COLOR,
-        ),
+        Image.asset('assets/images/order.png', height: 30),
 
-        /// Settings
-        SalomonBottomBarItem(
-          icon: const Icon(Icons.payments_outlined),
-          title: Text(
-            'Payouts'.toUpperCase(),
-            style: GoogleFonts.raleway(fontSize: 10),
-          ),
-          selectedColor: Colors.black,
+        Icon(
+          Icons.payments_outlined,
+          // color: ThemeMode.light == true ? Colors.black : WHITE_COLOR,
         ),
-
-        /// Profile
-        // SalomonBottomBarItem(
-        //   icon: const Icon(Icons.menu_rounded),
-        //   title: Text('Menu'.toUpperCase()),
-        //   selectedColor: Colors.teal,
-        // ),
       ],
     );
   }

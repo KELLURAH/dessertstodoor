@@ -34,13 +34,13 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       drawer: Sidebar(name: widget.name, email: widget.email, context: context),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         leading: Builder(builder: (context) {
           return IconButton(
             icon: const Icon(
               Icons.menu,
               size: 35,
-              color: Colors.black,
+              // color: Colors.black,
             ),
             onPressed: () => Scaffold.of(context).openDrawer(),
           );
@@ -49,7 +49,7 @@ class _LandingPageState extends State<LandingPage> {
         title: Text(
           'Dashboard',
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            // color: Colors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           height: size.height,
           width: size.width,
-          decoration: const BoxDecoration(color: BACKGROUND_COLOR),
+          decoration: const BoxDecoration(),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,23 +90,23 @@ class _LandingPageState extends State<LandingPage> {
                     fontSize: 15,
                   ),
                 ),
-                addVertical(size.height * 0.0005),
+                addVertical(size.height * 0.0090),
                 SizedBox(
                   height: size.height * 0.15,
                   width: size.width,
-                  child: const DashboardCards(
-                    icon: Icon(Icons.abc, size: 35),
+                  child: DashboardCards(
+                    icon: Image.asset('assets/images/discount.png'),
                     title: 'Offers Procured',
                     subtitle: '45',
                     fontSize: 15,
                   ),
                 ),
-                addVertical(size.height * 0.0005),
+                addVertical(size.height * 0.0090),
                 SizedBox(
                   height: size.height * 0.15,
                   width: size.width,
-                  child: const DashboardCards(
-                    icon: Icon(Icons.abc, size: 35),
+                  child: DashboardCards(
+                    icon: Image.asset('assets/images/all.png'),
                     title: 'Total Orders',
                     subtitle: '15',
                   ),
@@ -120,6 +120,8 @@ class _LandingPageState extends State<LandingPage> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   height: size.height * 0.275,
                   decoration: BoxDecoration(
+                    // color:
+                    // ThemeMode.system == true ? WHITE_COLOR : Colors.black87,
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
                     boxShadow: [
                       BoxShadow(
@@ -135,7 +137,7 @@ class _LandingPageState extends State<LandingPage> {
                     width: size.width,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(25)),
-                      color: Colors.white,
+                      // color: Colors.white,
                     ),
                     child: BarChart(
                       BarChartData(
@@ -147,7 +149,7 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 3,
-                                color: SECOND_COLOR,
+                                color: PRIMARY_COLOR.withOpacity(0.75),
                                 width: 25,
                               ),
                             ],
@@ -157,7 +159,7 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 5,
-                                color: SECOND_COLOR,
+                                color: PRIMARY_COLOR.withOpacity(0.75),
                                 width: 25,
                               ),
                             ],
@@ -167,7 +169,7 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 8,
-                                color: SECOND_COLOR,
+                                color: PRIMARY_COLOR.withOpacity(0.75),
                                 width: 25,
                               ),
                             ],
@@ -177,7 +179,7 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 4,
-                                color: SECOND_COLOR,
+                                color: PRIMARY_COLOR.withOpacity(0.75),
                                 width: 25,
                               ),
                             ],
@@ -187,7 +189,7 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 4,
-                                color: SECOND_COLOR,
+                                color: PRIMARY_COLOR.withOpacity(0.75),
                                 width: 25,
                               ),
                             ],
@@ -227,7 +229,7 @@ class _LandingPageState extends State<LandingPage> {
                         topLeft: Radius.circular(25),
                         bottomLeft: Radius.circular(25),
                       ),
-                      color: Colors.white,
+                      // color: Colors.white,
                     ),
                     child: DataTable2(
                       columnSpacing: 10,

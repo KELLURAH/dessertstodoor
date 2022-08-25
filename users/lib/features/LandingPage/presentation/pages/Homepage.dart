@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:users/core/utils/Colors.dart';
 import 'package:users/features/Vendors/presentation/widgets/VendorCard.dart';
 
@@ -66,7 +66,7 @@ class HomePageState extends State<HomePage> {
       });
     }
 
-    List<Map> _vendors = [
+    List<Map> vendors = [
       {
         'name': 'Tom\'s Bakery',
         'specialty': 'Bread, Cakes',
@@ -88,7 +88,7 @@ class HomePageState extends State<HomePage> {
         'image': 'assets/images/cake.png'
       },
     ];
-    final scrollController = ScrollController();
+    // final scrollController = ScrollController();
     return Scaffold(
       // drawer: Sidebar(),
       appBar: appbar(
@@ -154,7 +154,7 @@ class HomePageState extends State<HomePage> {
                     child: ListView.separated(
                       physics: const BouncingScrollPhysics(),
                       padding: const EdgeInsets.symmetric(vertical: 10),
-                      itemCount: _vendors.length,
+                      itemCount: vendors.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return GestureDetector(
@@ -164,16 +164,16 @@ class HomePageState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Vendors(
-                                    vendorName: _vendors[index]['name'],
-                                    vendorImage: _vendors[index]['image'],
+                                    vendorName: vendors[index]['name'],
+                                    vendorImage: vendors[index]['image'],
                                     fromHomepage: false,
                                   ),
                                 ));
                           },
                           child: VendorCard(
                             isOffersPage: false,
-                            title: _vendors[index]['name'],
-                            image: _vendors[index]['image'],
+                            title: vendors[index]['name'],
+                            image: vendors[index]['image'],
                           ),
                         );
                       },

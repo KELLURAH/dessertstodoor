@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:convert';
+// import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:users/core/utils/Colors.dart';
 
 import '../../../../core/components/loading.dart';
 import '../../../../core/components/widgetFunctions.dart';
-import '../../../../core/utils/UtilityService.dart';
+// import '../../../../core/utils/UtilityService.dart';
 
 class Registration extends StatefulWidget {
   // final Function toggleView;

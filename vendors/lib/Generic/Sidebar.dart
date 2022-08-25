@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vendors/core/utils/Colors.dart';
 import '../core/utils/Colors.dart';
-import '../src/features/Settings/presentation/pages/SettingsPage.dart';
+// import '../src/features/Settings/presentation/pages/SettingsPage.dart';
 
 Widget Sidebar({BuildContext? context, String? email, String? name}) {
   return Drawer(
@@ -23,7 +23,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 'Hello, $name!',
                 style: GoogleFonts.lato(
                   fontSize: 14,
-                  color: Colors.black,
+                  //
                   fontWeight: FontWeight.w600,
                   letterSpacing: .25,
                 ),
@@ -32,7 +32,6 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 email!,
                 style: GoogleFonts.poppins(
                   fontSize: 14,
-                  color: Colors.black,
                   fontWeight: FontWeight.w400,
                   letterSpacing: .25,
                 ),
@@ -48,8 +47,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                   title: Text(
                     'Notifications',
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.black,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
@@ -72,8 +70,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                   title: Text(
                     'Promo Codes',
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.black,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
@@ -97,13 +94,11 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                 child: ListTile(
                   leading: const Icon(
                     Icons.settings_outlined,
-                    color: Colors.black,
                   ),
                   title: Text(
                     'Settings',
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.black,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
@@ -124,8 +119,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
                   title: Text(
                     'FAQs',
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.black,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
@@ -145,19 +139,19 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Card(
+                color: Theme.of(context!).cardColor,
                 elevation: .5,
                 child: ListTile(
                   leading: Image.asset('assets/images/logout.png', height: 30),
                   title: Text(
                     'Logout',
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.black,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       letterSpacing: .45,
                     ),
                   ),
-                  onTap: () => logout(context!),
+                  onTap: () => logout(context),
                 ),
               ),
             ),
@@ -173,8 +167,7 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
             child: Text(
               'Version: v1.0.0',
               style: GoogleFonts.poppins(
-                fontSize: 14,
-                color: Colors.black,
+                fontSize: 16,
                 fontWeight: FontWeight.w400,
                 letterSpacing: .5,
               ),

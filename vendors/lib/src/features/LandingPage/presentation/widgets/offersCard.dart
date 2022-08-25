@@ -25,24 +25,26 @@ class OffersCards extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.45,
+      height: size.height * 0.4,
       width: size.width * 0.4,
       padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
+        backgroundBlendMode: BlendMode.darken,
+        borderRadius: BorderRadius.circular(35),
+        color: SECOND_COLOR,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.15),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
+            offset: Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
       child: Container(
         padding: const EdgeInsets.all(5),
         decoration: const BoxDecoration(
-          color: Colors.black54,
+          // color: Colors.black54,
           borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
         child: Stack(
@@ -59,7 +61,7 @@ class OffersCards extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: fontSize ?? 18,
                   letterSpacing: .5,
-                  color: WHITE_COLOR,
+                  // color: WHITE_COLOR,
                   fontWeight: FontWeight.w600,
                 ),
               ),

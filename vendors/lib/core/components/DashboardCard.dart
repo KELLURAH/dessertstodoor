@@ -28,10 +28,18 @@ class DashboardCards extends StatelessWidget {
       width: size.width * 0.4,
       padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
       decoration: BoxDecoration(
+        // color: PRIMARY_LIGHT,
+        gradient: const LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [PRIMARY_LIGHT, SECOND_COLOR],
+          // stops: [1],
+        ),
+        // backgroundBlendMode: BlendMode.color,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
+            color: Colors.grey.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 7,
             offset: const Offset(0, 3), // changes position of shadow
@@ -41,7 +49,7 @@ class DashboardCards extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(5),
         decoration: const BoxDecoration(
-          color: WHITE_COLOR,
+          // color: WHITE_COLOR,
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
         child: Stack(
@@ -58,7 +66,7 @@ class DashboardCards extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: fontSize ?? 18,
                   letterSpacing: .5,
-                  color: Colors.black,
+                  // color: Colors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -73,13 +81,12 @@ class DashboardCards extends StatelessWidget {
                     height: size.height * 0.065,
                     width: size.width * 0.125,
                     decoration: BoxDecoration(
-                      color: SECOND_COLOR.withOpacity(0.15),
+                      // color: SECOND_COLOR.withOpacity(0.15),
                       border: Border.all(
                         color: SECOND_COLOR,
                         width: 2,
                       ),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(17.5)),
+                      borderRadius: BorderRadius.circular(17.5),
                     ),
                     child: icon,
                   ),

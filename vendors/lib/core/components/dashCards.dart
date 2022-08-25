@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vendors/core/components/widgetFunctions.dart';
+// import 'package:vendors/core/components/widgetFunctions.dart';
 
 class ProfileCard extends StatelessWidget {
   final String title;

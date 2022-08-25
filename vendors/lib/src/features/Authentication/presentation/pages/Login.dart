@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -18,6 +17,8 @@ class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
+
+final deviceWidth = window.physicalSize.width;
 
 class _LoginState extends State<Login> {
   // final AuthService _auth = AuthService();
@@ -57,11 +58,11 @@ class _LoginState extends State<Login> {
     final size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(1),
-        // image: DecorationImage(
-        //   image: SvgPicture.asset('assets/svgs/sign_in.png', scale: 2.0),
-        // ),
-      ),
+          // color: Colors.white.withOpacity(1),
+          // image: DecorationImage(
+          //   image: SvgPicture.asset('assets/svgs/sign_in.png', scale: 2.0),
+          // ),
+          ),
       padding: const EdgeInsets.symmetric(
         horizontal: 5,
         vertical: 1,
@@ -88,11 +89,11 @@ class _LoginState extends State<Login> {
       key: _formkey,
       child: Theme(
         data: ThemeData(
-          brightness: Brightness.light,
+          // brightness: Brightness.light,
           // primarySwatch: Colors.amber,
           inputDecorationTheme: const InputDecorationTheme(
             labelStyle: TextStyle(
-              color: Colors.white54,
+              // color: Colors.white54,
               fontSize: 20.0,
             ),
           ),
@@ -110,11 +111,11 @@ class _LoginState extends State<Login> {
                   ),
                   addVertical(10),
                   Text(
-                    'Login to Dessert2Door!',
+                    'Login to Desserts To Door!',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black,
+                      // color: Colors.black,
                       letterSpacing: .75,
                     ),
                   ),
@@ -195,7 +196,7 @@ class _LoginState extends State<Login> {
                               style: GoogleFonts.poppins(
                                 fontSize: 20,
                                 letterSpacing: 2.2,
-                                color: Colors.white,
+                                // color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -207,13 +208,15 @@ class _LoginState extends State<Login> {
                   addVertical(size.height * 0.010),
                   Row(
                     children: [
-                      Text(
-                        'Don\'t have an account?',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18,
-                          letterSpacing: .25,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
+                      Expanded(
+                        child: Text(
+                          'Don\'t have an account?',
+                          style: GoogleFonts.poppins(
+                            fontSize: deviceWidth >= 600 ? 15 : 14,
+                            letterSpacing: .15,
+                            // color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                       TextButton(

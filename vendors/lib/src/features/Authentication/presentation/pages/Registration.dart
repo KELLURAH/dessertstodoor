@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:convert';
+// import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:vendors/core/utils/Colors.dart';
 
 import '../../../../../core/components/loading.dart';
 import '../../../../../core/components/widgetFunctions.dart';
-import '../../../../../core/utils/UtilityService.dart';
+// import '../../../../../core/utils/UtilityService.dart';
 
 class Registration extends StatefulWidget {
   // final Function toggleView;
@@ -19,6 +19,8 @@ class Registration extends StatefulWidget {
   @override
   _RegistrationState createState() => _RegistrationState();
 }
+
+final deviceWidth = window.physicalSize.width;
 
 class _RegistrationState extends State<Registration> {
   // final AuthService _auth = AuthService();
@@ -32,7 +34,6 @@ class _RegistrationState extends State<Registration> {
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
   final confirmController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Loading(
@@ -60,11 +61,11 @@ class _RegistrationState extends State<Registration> {
     final size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(1),
-        // image: DecorationImage(
-        //   image: SvgPicture.asset('assets/svgs/sign_in.png', scale: 2.0),
-        // ),
-      ),
+          // color: Colors.white.withOpacity(1),
+          // image: DecorationImage(
+          //   image: SvgPicture.asset('assets/svgs/sign_in.png', scale: 2.0),
+          // ),
+          ),
       padding: const EdgeInsets.symmetric(
         horizontal: 5,
         vertical: 1,
@@ -109,9 +110,14 @@ class _RegistrationState extends State<Registration> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Column(
                 children: [
-                  Image.asset(
-                    'assets/images/logo.png',
-                    height: size.height * 0.15,
+                  Stack(
+                    children: [
+                      Image.asset(
+                        'assets/images/logo.png',
+                        height: size.height * 0.15,
+                      ),
+                      // Container()
+                    ],
                   ),
                   addVertical(10),
                   Text(
@@ -119,7 +125,7 @@ class _RegistrationState extends State<Registration> {
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black,
+                      // color: Colors.black,
                       letterSpacing: .75,
                       fontStyle: FontStyle.normal,
                     ),
@@ -130,8 +136,8 @@ class _RegistrationState extends State<Registration> {
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                      letterSpacing: .75,
+                      // color: Colors.black,
+                      letterSpacing: .45,
                       fontStyle: FontStyle.normal,
                     ),
                   ),
@@ -238,7 +244,7 @@ class _RegistrationState extends State<Registration> {
                           width: size.width,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: GREEN_COLOR[400],
+                              primary: SECOND_COLOR,
                             ),
                             onPressed: onButtonPressed,
                             child: SizedBox(
@@ -255,7 +261,7 @@ class _RegistrationState extends State<Registration> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 20,
                                       letterSpacing: 2.2,
-                                      color: Colors.white,
+                                      // color: Colors.white,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
@@ -267,13 +273,15 @@ class _RegistrationState extends State<Registration> {
                         addVertical(size.height * 0.010),
                         Row(
                           children: [
-                            Text(
-                              'Already have an account?',
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                letterSpacing: .25,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
+                            Expanded(
+                              child: Text(
+                                'Already have an account?',
+                                style: GoogleFonts.poppins(
+                                  fontSize: deviceWidth >= 600 ? 16 : 14,
+                                  letterSpacing: .15,
+                                  // color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                             TextButton(
@@ -400,7 +408,7 @@ class _RegistrationState extends State<Registration> {
         labelText: label,
         labelStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
-            color: Colors.black,
+            color: PRIMARY_COLOR,
             fontWeight: FontWeight.w500,
             fontSize: 16,
           ),

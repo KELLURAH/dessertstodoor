@@ -52,13 +52,13 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         leading: Builder(builder: (context) {
           return IconButton(
             icon: const Icon(
               Icons.navigate_before,
               size: 35,
-              color: Colors.black,
+              // color: Colors.black,
             ),
             onPressed: () => Navigator.pop(context),
           );
@@ -67,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text(
           'Profile Settings',
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            // color: Colors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
@@ -148,7 +148,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             BoxShadow(
                               blurRadius: 12,
                               spreadRadius: 4,
-                              color: Colors.black.withOpacity(0.5),
+                              // color: Colors.black.withOpacity(0.5),
                               offset: const Offset(0, 15),
                             ),
                           ],
@@ -201,7 +201,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: GoogleFonts.lato(
                         fontSize: 16,
                         letterSpacing: .25,
-                        color: Colors.black,
+                        // color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -250,24 +250,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       hintStyle: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        // color: Colors.black,
                       ),
                       labelStyle: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        color: Colors.black,
+                        // color: Colors.black,
                         letterSpacing: .25,
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.black54,
+                          // color: Colors.black54,
                           width: 0.5,
                         ),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.black,
+                          // color: Colors.black,
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(15),
@@ -317,20 +317,26 @@ Widget buildTextField(
         hintStyle: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: Colors.black,
+          // color: Colors.black,
         ),
         labelStyle: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w400,
-          color: Colors.black,
+          // color: Colors.black,
           letterSpacing: .25,
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.black54, width: 0.5),
+          borderSide: const BorderSide(
+            // color: Colors.black54,
+            width: 0.5,
+          ),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.black, width: 1),
+          borderSide: const BorderSide(
+            // color: Colors.black,
+            width: 1,
+          ),
           borderRadius: BorderRadius.circular(15),
         ),
       ),

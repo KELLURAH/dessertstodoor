@@ -37,7 +37,7 @@ class _OtpVerifyState extends State<OtpVerify> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       persistentFooterButtons: [
         SizedBox(
           width: size.width,
@@ -55,7 +55,7 @@ class _OtpVerifyState extends State<OtpVerify> {
             //     },
             //   ),
             child: ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/h'),
+              onPressed: () => Navigator.pushReplacementNamed(context, '/h'),
               style: ElevatedButton.styleFrom(primary: PRIMARY_COLOR),
               child: Text(
                 'VERIFY',
@@ -85,7 +85,7 @@ class _OtpVerifyState extends State<OtpVerify> {
                       child: const Icon(
                         Icons.navigate_before,
                         size: 35,
-                        color: Colors.black,
+                        // color: Colors.black,
                       ),
                     ),
                   ),
@@ -165,26 +165,29 @@ class _OtpVerifyState extends State<OtpVerify> {
               addVertical(30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Center(
-                  child: OTPTextField(
-                    length: 4,
-                    width: MediaQuery.of(context).size.width,
-                    fieldWidth: 50,
-                    style: const TextStyle(color: Colors.black, fontSize: 16),
-                    textFieldAlignment: MainAxisAlignment.spaceAround,
-                    fieldStyle: FieldStyle.box,
-                    onCompleted: (pin) {
-                      print('Completed: $pin');
-                      setState(() {
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.white30),
+                  child: Center(
+                    child: OTPTextField(
+                      length: 4,
+                      width: MediaQuery.of(context).size.width,
+                      fieldWidth: 50,
+                      style: const TextStyle(fontSize: 16),
+                      textFieldAlignment: MainAxisAlignment.spaceAround,
+                      fieldStyle: FieldStyle.box,
+                      onCompleted: (pin) {
+                        print('Completed: $pin');
+                        setState(() {
+                          globalPin = (pin);
+                          print('globalPin: $globalPin');
+                        });
+                      },
+                      // obscureText: true,
+                      onChanged: (pin) {
                         globalPin = (pin);
                         print('globalPin: $globalPin');
-                      });
-                    },
-                    // obscureText: true,
-                    onChanged: (pin) {
-                      globalPin = (pin);
-                      print('globalPin: $globalPin');
-                    },
+                      },
+                    ),
                   ),
                 ),
               ),

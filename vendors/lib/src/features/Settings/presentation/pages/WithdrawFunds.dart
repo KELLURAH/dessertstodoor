@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cupertino_stepper/cupertino_stepper.dart';
+// import 'package:cupertino_stepper/cupertino_stepper.dart';
 import 'package:vendors/core/components/widgetFunctions.dart';
 
 import '../widgets/WithdrawalStepper.dart';
@@ -18,13 +17,13 @@ class _WFundsPageState extends State<WFundsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         leading: Builder(builder: (context) {
           return IconButton(
             icon: const Icon(
               Icons.navigate_before,
               size: 35,
-              color: Colors.black,
+              // color: Colors.black,
             ),
             onPressed: () => Navigator.pop(context),
           );
@@ -33,7 +32,7 @@ class _WFundsPageState extends State<WFundsPage> {
         title: Text(
           'Withdraw Funds',
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            // color: Colors.black,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
@@ -47,7 +46,7 @@ class _WFundsPageState extends State<WFundsPage> {
             children: [
               Expanded(
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.red[100]),
+                  style: ElevatedButton.styleFrom(primary: Colors.red[400]),
                   onPressed: () => Navigator.pop(context),
                   child: subText('Cancel', color: Colors.red),
                 ),

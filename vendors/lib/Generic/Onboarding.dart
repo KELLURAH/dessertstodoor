@@ -20,18 +20,19 @@ class OnBoarding extends StatelessWidget {
         finishButtonTextStyle: GoogleFonts.poppins(
           fontSize: 20,
           fontWeight: FontWeight.w700,
-          color: Colors.white,
+          // color: Colors.white,
         ),
         headerBackgroundColor: Colors.white,
         finishButtonText: 'Register',
-        skipTextButton: Text(
-          'Skip',
-          style: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-        ),
+        skipTextButton: Image.asset('assets/images/skip.png', height: 30),
+        // skipTextButton: Text(
+        //   'Skip',
+        //   style: GoogleFonts.poppins(
+        //     fontSize: 20,
+        //     fontWeight: FontWeight.w600,
+        //     // color: Colors.black,
+        //   ),
+        // ),
         controllerColor: SECOND_COLOR,
         // trailing: Text('Login'),
         background: [

@@ -22,7 +22,7 @@ dependencies:
   flutter_onboarding_slider: ^1.0.7
   avatar_glow: ^2.0.2
   flash: ^1.2.3
-  salomon_bottom_bar: ^3.3.1
+  curved_navigation_bar:
   fl_chart: ^0.55.0
   flutter_svg: ^1.1.1+1
   image_picker: ^0.8.5+3
@@ -32,6 +32,8 @@ dependencies:
   dropdown_search: ^5.0.2
   cupertino_stepper: ^0.2.1
   data_table_2: ^2.3.6
+  flex_color_scheme: ^5.1.0
+  google_maps_flutter: ^2.1.12
 
 
 dev_dependencies:
