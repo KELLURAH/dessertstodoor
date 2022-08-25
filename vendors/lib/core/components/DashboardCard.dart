@@ -24,7 +24,7 @@ class DashboardCards extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.45,
+      height: size.height * 0.4,
       width: size.width * 0.4,
       padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
       decoration: BoxDecoration(

@@ -34,6 +34,16 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       drawer: Sidebar(name: widget.name, email: widget.email, context: context),
       appBar: AppBar(
+        // flexibleSpace: Container(
+        //   decoration: const BoxDecoration(
+        //     gradient: LinearGradient(
+        //       colors: [SECOND_COLOR, PRIMARY_COLOR],
+        //       stops: [0.5, 1.0],
+        //       end: Alignment.bottomRight,
+        //       begin: Alignment.topLeft,
+        //     ),
+        //   ),
+        // ),
         // backgroundColor: Colors.white,
         leading: Builder(builder: (context) {
           return IconButton(
@@ -120,8 +130,6 @@ class _LandingPageState extends State<LandingPage> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   height: size.height * 0.275,
                   decoration: BoxDecoration(
-                    // color:
-                    // ThemeMode.system == true ? WHITE_COLOR : Colors.black87,
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
                     boxShadow: [
                       BoxShadow(
@@ -149,7 +157,12 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 3,
-                                color: PRIMARY_COLOR.withOpacity(0.75),
+                                // color: ThemeMode.dark != true
+                                // ? Colors.grey[400]
+                                // : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
                                 width: 25,
                               ),
                             ],
@@ -159,7 +172,12 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 5,
-                                color: PRIMARY_COLOR.withOpacity(0.75),
+                                // color: ThemeMode.dark != true
+                                // ? Colors.grey[400]
+                                // : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
                                 width: 25,
                               ),
                             ],
@@ -169,7 +187,12 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 8,
-                                color: PRIMARY_COLOR.withOpacity(0.75),
+                                // color: ThemeMode.dark != true
+                                // ? Colors.grey[400]
+                                // : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
                                 width: 25,
                               ),
                             ],
@@ -179,7 +202,12 @@ class _LandingPageState extends State<LandingPage> {
                             barRods: [
                               BarChartRodData(
                                 toY: 4,
-                                color: PRIMARY_COLOR.withOpacity(0.75),
+                                // color: ThemeMode.dark != true
+                                // ? Colors.grey[400]
+                                // : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
                                 width: 25,
                               ),
                             ],
@@ -188,8 +216,43 @@ class _LandingPageState extends State<LandingPage> {
                             x: 5,
                             barRods: [
                               BarChartRodData(
-                                toY: 4,
-                                color: PRIMARY_COLOR.withOpacity(0.75),
+                                toY: 6,
+                                // color: ThemeMode.dark != true
+                                // ? Colors.grey[400]
+                                // : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
+                                width: 25,
+                              ),
+                            ],
+                          ),
+                          BarChartGroupData(
+                            x: 6,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 6,
+                                // color: ThemeMode.dark != true
+                                // ? Colors.grey[400]
+                                // : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
+                                width: 25,
+                              ),
+                            ],
+                          ),
+                          BarChartGroupData(
+                            x: 7,
+                            barRods: [
+                              BarChartRodData(
+                                toY: 2,
+                                // color: ThemeMode.dark == true
+                                //     ? Colors.grey[400]
+                                //     : PRIMARY_COLOR,
+                                // gradient: const LinearGradient(
+                                // colors: [PRIMARY_COLOR, Colors.white70],
+                                // ),
                                 width: 25,
                               ),
                             ],
