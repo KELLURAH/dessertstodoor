@@ -13,7 +13,13 @@ Widget Sidebar({BuildContext? context, String? email, String? name}) {
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              // decoration: BoxDecoration(color: PRIMARY_COLOR.withOpacity(0.2)),
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [PRIMARY_COLOR, SECOND_COLOR],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
               currentAccountPicture: CircleAvatar(
                 radius: 65,
                 backgroundColor: Colors.white60,

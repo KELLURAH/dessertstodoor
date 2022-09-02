@@ -15,9 +15,9 @@ class RidersPage extends StatefulWidget {
 }
 
 class _RidersPageState extends State<RidersPage> {
-  static const CameraPosition _DCS = CameraPosition(
-    target: LatLng(5.646446, -0.155072),
-    zoom: 18,
+  static const CameraPosition koforidua = CameraPosition(
+    target: LatLng(6.078443, -0.271394),
+    zoom: 16,
   );
   final Set<Marker> _markers = {};
 
@@ -39,25 +39,64 @@ class _RidersPageState extends State<RidersPage> {
           ),
         ),
       ),
-      body: screenBody(
+      body: Stack(
         children: [
-          SizedBox(
-            height: size.height * 0.65,
-            child: GoogleMap(
-              markers: _markers,
-              initialCameraPosition: _DCS,
-              myLocationEnabled: true,
-              myLocationButtonEnabled: false,
-              mapType: MapType.satellite,
-              zoomGesturesEnabled: false,
-              zoomControlsEnabled: true,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
+          GoogleMap(
+            markers: _markers,
+            initialCameraPosition: koforidua,
+            myLocationEnabled: true,
+            myLocationButtonEnabled: false,
+            mapType: MapType.satellite,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: true,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: size.height * 0.25,
+              width: size.width,
+              margin: const EdgeInsets.only(top: 15, right: 15, left: 15),
+              padding: const EdgeInsets.all(15),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  topRight: Radius.circular(35),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Available Riders -',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      addHorizontal(5),
+                      Text(
+                        '0',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
+                  addVertical(size.height * 0.075),
+                ],
+              ),
             ),
           ),
         ],
-        size: size,
       ),
     );
   }

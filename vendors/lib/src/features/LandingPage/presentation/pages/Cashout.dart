@@ -42,7 +42,7 @@ class PayoutsState extends State<Payouts> {
                 child: Divider(color: Colors.black54, thickness: 0.45),
               ),
               PaymentInfoSettings(size, '0201154679'),
-              addVertical(size.height * 0.025),
+              addVertical(size.height * 0.075),
               subText('Recent Withdrawals'),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -136,7 +136,7 @@ class PayoutsState extends State<Payouts> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
-      height: size.height * .325,
+      height: size.height * .265,
       decoration: BoxDecoration(
         // color: Colors.white,
         borderRadius: BorderRadius.circular(25),
